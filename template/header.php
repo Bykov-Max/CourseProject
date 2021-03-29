@@ -6,6 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-    <link rel="stylesheet" href="css1.css">
+    <link rel="stylesheet" href="../css1.css">
 </head>
 <body>

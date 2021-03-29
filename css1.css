@@ -11,6 +11,10 @@ body{
     border-radius: 5px;
 }
 
+.block-menu > a{
+    text-decoration: none;
+}
+
 .block-menu>a:hover{
     border: 1px solid white;
     color: white;
