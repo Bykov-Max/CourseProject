@@ -1,7 +1,8 @@
 <?php include $_SERVER["DOCUMENT_ROOT"]."/template/header.php"; ?>
 <header>
         <div class="container">
-            <a class="logo">LOGO</a>
+            <nav class="site"> <a class="logo">Skillet'sFans.ru</a> </nav>
+
             <div class="burger">
                 <div></div>
                 <div></div>
