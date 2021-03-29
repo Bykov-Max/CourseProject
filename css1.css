@@ -6,13 +6,16 @@ body{
 .block-menu{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    background-color: orange;
+    background-color: black;
     font-size: 25px;
     border-radius: 5px;
 }
 
 .block-menu > a{
     text-decoration: none;
+    text-align: center;
+    padding: 25px;
+    color: white;
 }
 
 .block-menu>a:hover{
