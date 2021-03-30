@@ -1,13 +1,17 @@
 <?php
 session_start();
 if(isset($_POST["submit"])) {
-    if ($user[$_POST["email"]] == $_POST["password"] && ($user[$_POST["email"]] && $_POST["password"] != "")) {
+    if ($_POST['email'] == "admin@ru.ru" && $_POST["password"] == 123456) {
         $_SESSION["auth"] = true;
         $_SESSION["email"] = $_POST["email"];
         $_SESSION["auth_exit"] = "Выйти";
         header("Location: /");
     }
+    else{
+        $res = " Неправильно введены логин или пароль..... ";
+    }
 }
+
 else{
     if(isset($_SESSION["auth_exit"]) && $_SESSION["auth_exit"] == "Выйти"){
         $_SESSION["auth_exit"] = "Авторизация";
