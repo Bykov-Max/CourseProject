@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 26 2021 г., 21:26
+-- Время создания: Мар 30 2021 г., 09:46
 -- Версия сервера: 10.3.22-MariaDB
--- Версия PHP: 7.4.5
+-- Версия PHP: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,13 +24,13 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `city`
+-- Структура таблицы `cities`
 --
 
-CREATE TABLE `city` (
-  `ID_города` int(11) NOT NULL,
-  `ID_Страны` int(11) NOT NULL,
-  `Название города` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+CREATE TABLE `cities` (
+  `ID` int(11) NOT NULL,
+  `countries_ID` int(11) NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -40,21 +40,44 @@ CREATE TABLE `city` (
 --
 
 CREATE TABLE `concerts` (
-  `ID_тура` int(11) NOT NULL,
-  `ID_города` int(11) NOT NULL,
-  `Дата_начала` date NOT NULL,
-  `Дата_окончания` date NOT NULL
+  `ID` int(11) NOT NULL,
+  `cities_ID` int(11) NOT NULL,
+  `stat_date` date NOT NULL,
+  `end_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `country`
+-- Структура таблицы `countries`
 --
 
-CREATE TABLE `country` (
-  `ID_Страны` int(11) NOT NULL,
-  `Название страны` int(11) NOT NULL
+CREATE TABLE `countries` (
+  `ID` int(11) NOT NULL,
+  `name` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `discographies`
+--
+
+CREATE TABLE `discographies` (
+  `ID` int(11) NOT NULL,
+  `musics_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `events`
+--
+
+CREATE TABLE `events` (
+  `ID` int(11) NOT NULL,
+  `date_of_event` date DEFAULT NULL,
+  `descr_of_event` longtext COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -64,24 +87,25 @@ CREATE TABLE `country` (
 --
 
 CREATE TABLE `group` (
-  `Инфо_о_группе` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ID_Фотографии` int(11) NOT NULL,
-  `ID_Песни` int(11) NOT NULL,
-  `Дата_созд_гр` date NOT NULL
+  `Info` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `founder` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `discographies_ID` int(11) NOT NULL,
+  `date_of_creation` date NOT NULL,
+  `events_ID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `groupmembers`
+-- Структура таблицы `group_members`
 --
 
-CREATE TABLE `groupmembers` (
-  `ID_участника` int(11) NOT NULL,
-  `ФИО` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Биография` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Фото_участника` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Роль_в_составе` text COLLATE utf8mb4_unicode_ci NOT NULL
+CREATE TABLE `group_members` (
+  `ID` int(11) NOT NULL,
+  `full_name` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `biography` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `photo` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `roles_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -91,22 +115,33 @@ CREATE TABLE `groupmembers` (
 --
 
 CREATE TABLE `images` (
-  `ID_изображ` int(11) NOT NULL,
-  `Изображение` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
+  `ID` int(11) NOT NULL,
+  `image` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `music`
+-- Структура таблицы `musics`
 --
 
-CREATE TABLE `music` (
-  `ID_песни` int(11) NOT NULL,
-  `Название_песни` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Текст_песни` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Клип` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Музыка` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
+CREATE TABLE `musics` (
+  `ID` int(11) NOT NULL,
+  `name` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `video` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sound` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `roles`
+--
+
+CREATE TABLE `roles` (
+  `ID` int(11) NOT NULL,
+  `name` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -116,9 +151,11 @@ CREATE TABLE `music` (
 --
 
 CREATE TABLE `tours` (
-  `ID_Тура` int(11) NOT NULL,
-  `Дата_начала` date NOT NULL,
-  `Дата_окончания` date NOT NULL
+  `ID` int(11) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `name_of_tour` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `poster` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -126,119 +163,136 @@ CREATE TABLE `tours` (
 --
 
 --
--- Индексы таблицы `city`
+-- Индексы таблицы `cities`
 --
-ALTER TABLE `city`
-  ADD PRIMARY KEY (`ID_города`),
-  ADD KEY `ID_country` (`ID_Страны`);
+ALTER TABLE `cities`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `ID_country` (`countries_ID`);
 
 --
 -- Индексы таблицы `concerts`
 --
 ALTER TABLE `concerts`
-  ADD KEY `ID_tour` (`ID_тура`),
-  ADD KEY `ID_city` (`ID_города`);
+  ADD KEY `ID_tour` (`ID`),
+  ADD KEY `ID_city` (`cities_ID`);
 
 --
--- Индексы таблицы `country`
+-- Индексы таблицы `countries`
 --
-ALTER TABLE `country`
-  ADD PRIMARY KEY (`ID_Страны`);
+ALTER TABLE `countries`
+  ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `group`
+-- Индексы таблицы `discographies`
 --
-ALTER TABLE `group`
-  ADD KEY `ID_photo` (`ID_Фотографии`),
-  ADD KEY `ID_music` (`ID_Песни`);
+ALTER TABLE `discographies`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `discographies_ID_uindex` (`ID`);
 
 --
--- Индексы таблицы `groupmembers`
+-- Индексы таблицы `events`
 --
-ALTER TABLE `groupmembers`
-  ADD PRIMARY KEY (`ID_участника`);
+ALTER TABLE `events`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Индексы таблицы `group_members`
+--
+ALTER TABLE `group_members`
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Индексы таблицы `images`
 --
 ALTER TABLE `images`
-  ADD PRIMARY KEY (`ID_изображ`);
+  ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `music`
+-- Индексы таблицы `musics`
 --
-ALTER TABLE `music`
-  ADD PRIMARY KEY (`ID_песни`);
+ALTER TABLE `musics`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Индексы таблицы `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Индексы таблицы `tours`
 --
 ALTER TABLE `tours`
-  ADD PRIMARY KEY (`ID_Тура`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
 --
--- AUTO_INCREMENT для таблицы `city`
+-- AUTO_INCREMENT для таблицы `cities`
 --
-ALTER TABLE `city`
-  MODIFY `ID_города` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `cities`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `country`
+-- AUTO_INCREMENT для таблицы `countries`
 --
-ALTER TABLE `country`
-  MODIFY `ID_Страны` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `countries`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `groupmembers`
+-- AUTO_INCREMENT для таблицы `events`
 --
-ALTER TABLE `groupmembers`
-  MODIFY `ID_участника` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `events`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `group_members`
+--
+ALTER TABLE `group_members`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `images`
 --
 ALTER TABLE `images`
-  MODIFY `ID_изображ` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `music`
+-- AUTO_INCREMENT для таблицы `musics`
 --
-ALTER TABLE `music`
-  MODIFY `ID_песни` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `musics`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `tours`
 --
 ALTER TABLE `tours`
-  MODIFY `ID_Тура` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --
 
 --
--- Ограничения внешнего ключа таблицы `city`
+-- Ограничения внешнего ключа таблицы `cities`
 --
-ALTER TABLE `city`
-  ADD CONSTRAINT `ID_country` FOREIGN KEY (`ID_Страны`) REFERENCES `country` (`ID_Страны`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `cities`
+  ADD CONSTRAINT `ID_country` FOREIGN KEY (`countries_ID`) REFERENCES `countries` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `concerts`
 --
 ALTER TABLE `concerts`
-  ADD CONSTRAINT `ID_city` FOREIGN KEY (`ID_города`) REFERENCES `city` (`ID_города`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ID_tour` FOREIGN KEY (`ID_тура`) REFERENCES `tours` (`ID_Тура`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ограничения внешнего ключа таблицы `group`
---
-ALTER TABLE `group`
-  ADD CONSTRAINT `ID_music` FOREIGN KEY (`ID_Песни`) REFERENCES `music` (`ID_песни`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ID_photo` FOREIGN KEY (`ID_Фотографии`) REFERENCES `images` (`ID_изображ`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ID_city` FOREIGN KEY (`cities_ID`) REFERENCES `cities` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ID_tour` FOREIGN KEY (`ID`) REFERENCES `tours` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

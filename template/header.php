@@ -9,3 +9,4 @@
     <link rel="stylesheet" href="../css1.css">
 </head>
 <body>
+<div class="content"></div>
