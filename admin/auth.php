@@ -14,7 +14,7 @@ if(isset($_POST["submit"])) {
 
 else{
     if(isset($_SESSION["auth_exit"]) && $_SESSION["auth_exit"] == "Выйти"){
-        $_SESSION["auth_exit"] = "Авторизация";
+        $_SESSION["auth_exit"] = "Для админа";
         $_SESSION["auth"]=false;
         session_destroy();
         header("Location: /");

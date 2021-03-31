@@ -14,14 +14,14 @@
         <div class="container">
             <nav class="site">
                 <a class="logo">Skillet'sFans.ru</a>
-                <a href="../admin/auth.php" class="admin"> <?= isset($_SESSION["auth"]) ? "Выйти": "Для админа" ?> </a>
+                <a href="/admin/auth.php" class="admin""> <?= isset($_SESSION["auth"]) ? "Выйти": "Для админа" ?> </a>
             </nav>
         </div>
 
         <nav class="block-menu">
-            <a href="../index.view.php" class="logos"> <img src="../images/logo(1).jpg"> </a>
+            <a href="/index.view.php" class="logos"> <img src="../images/logo(1).jpg"> </a>
             <a href="#menu2">Информация о группе</a>
-            <a href="#menu3">Солисты</a>
+            <a href="/Information/dataSolists.php">Солисты</a>
             <a href="#menu4">Тексты песен</a>
         </nav>
     </header>
