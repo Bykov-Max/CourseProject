@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-    <link rel="stylesheet" href="../css1.css">
+    <link rel="stylesheet" href="/css1.css">
 </head>
 <body>
 <div class="content">
@@ -19,9 +19,10 @@
         </div>
 
         <nav class="block-menu">
-            <a href="/index.view.php" class="logos"> <img src="../images/logo(1).jpg"> </a>
-            <a href="#menu2">Информация о группе</a>
-            <a href="/Information/dataSolists.php">Солисты</a>
+            <a href="/index.view.php" class="logos"> <img src="/images/logo(1).jpg"> </a>
+            <a href="/Information/groupInfo/">Информация о группе</a>
+            <a href="/Information/soloistsInfo/">Солисты</a>
             <a href="#menu4">Тексты песен</a>
+            <a href="#menu4">Информация о турах</a>
         </nav>
     </header>

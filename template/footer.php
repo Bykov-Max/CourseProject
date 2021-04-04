@@ -1,6 +1,6 @@
 
 <footer>
-    <a href="#about"> О нас </a>
+    <a href="#"> О нас </a>
 </footer>
 </div>
 </body>

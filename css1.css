@@ -9,7 +9,7 @@ body{
 
 .block-menu{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     background-color: black;
     font-size: 25px;
 }
@@ -22,7 +22,6 @@ body{
 }
 
 .block-menu>a:hover{
-    border: 1px solid white;
     color: white;
     background-color: blue;
     border-radius: 5px;
@@ -31,7 +30,6 @@ body{
 }
 
 .block-menu>a:active{
-    border: 1px solid white;
     color: white;
     background-color: blue;
     border-radius: 5px;
@@ -150,5 +148,25 @@ footer>a:active{
 }
 
 .info{
+    padding: 10px;
+    background-color: #bebebe;
+}
+
+.info img{
+    width: 450px;
+    height: 500px;
+    float: right;
+}
+
+.info img:hover{
+    content: attr(title);
+    font-size: 11px;
+}
+
+table{
     margin: 10px;
+}
+
+.soloists{
+    background-color: silver;
 }

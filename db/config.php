@@ -1,7 +1,7 @@
 <?php
 const CONN = [
     "host" => "localhost",
-    "dbname" => "test",
+    "dbname" => "course_project",
     "login" => "root",
     "password" => "root",
     "options" => [
