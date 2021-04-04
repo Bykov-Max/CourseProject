@@ -6,7 +6,7 @@
                 <input type="text" name="full_name" required> <br><br>
 
                 <label>Фото</label>
-                <input type="file" name="images" id="image" required> <br><br>
+                <input type="file" name="image" id="image" required> <br><br>
                 <img src="" alt="" id="loadImage">
 
                 <label>Биография</label>
@@ -14,6 +14,9 @@
 
                 <label>Карьера</label>
                 <input type="text" name="career" required> <br><br>
+
+                <label>Роль в группе</label>
+                <input type="text" name="role" required> <br><br>
 
                 <button name="createPost">Создать пост</button>
             </form>

@@ -1,5 +1,4 @@
 <?php include $_SERVER["DOCUMENT_ROOT"] . "/template/header.php";
-
 use App\modals\ShowData; ?>
     <div class="soloists">
         <table border="1">

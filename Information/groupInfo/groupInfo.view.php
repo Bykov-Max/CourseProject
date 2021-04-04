@@ -5,7 +5,7 @@
     <?= $item->Info ?> <br><br>
 
     <h3>Создатель группы</h3>
-    <a href="/Information/soloistInfo/"> <?= $item->founder ?> </a>
+    <a href="/Information/soloistInfo/?id=<?= $item->ID ?>"> <?= $item->founder ?> </a>
 <?php endforeach; ?>
 
 <a name="change" class = "change" style="display: <?= $_SESSION['auth'] ? 'inline' : 'none' ?>" href="/Information/change/change.php" type="button">Изменть статью</a>
