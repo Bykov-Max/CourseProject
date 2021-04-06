@@ -7,7 +7,7 @@ if(isset($_POST["createPost"])){
     $data["full_name"] = $_POST['full_name'];
     $data["biography"] = $_POST['biography'];
     $data["career"] = $_POST['career'];
-    $data["roles_id"] = $_POST["roles_id"];
+    $data["roles_id"] = (int)$_POST["roles_id"];
 
     [$error, $fileName] = loadImg($maxFileSize, $validFileTypes, $uploadPath, "photo");
 
@@ -21,7 +21,7 @@ if(isset($_POST["createPost"])){
         $members = $groupMembers->addSoloist($data);
 
 
-        header("Location: /Information/soloistInfo/");
+        header("Location: /Information/newGroupMember/new.php");
     }
     else{
         $_SESSION["msg"] = $error;

@@ -2,7 +2,7 @@
 
 
     <div class="info">
-        <img src="/images/<?= $dataInfo->photo ?>" title = "Джон Купер на концерте в 2017 году" alt="">
+        <img src="/images/<?= $dataInfo->photo ?>" class="image">
         <h2>Биография</h2><?= $dataInfo->biography ?>
         <h2>Карьера</h2><?= $dataInfo->career ?>
         <h2>Карьера</h2><?= $dataInfo->name ?> <br><br>

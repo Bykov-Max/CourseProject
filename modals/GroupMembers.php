@@ -11,19 +11,17 @@ class GroupMembers
     }
 
     public function addSoloist($data){
-        $stmt = $this->pdo->prepare("insert into group_members(full_name, biography, career, photo, roles_ID) values (:fullName, :biography, :career, :photo, :roles_id:)");
-
-        var_dump($data);
-
+        $stmt = $this->pdo->prepare("insert into group_members(full_name, biography, photo, roles_ID, career) values (:full_name, :biography, :photo, :roles_id, :career)");
         $stmt->execute([
-            'full_name' => $data["full_name"],
-            'biography' => $data["biography"],
-            'career' => $data["career"],
-            'photo' => $data["photo"],
-            "roles_id" => $data["roles_id"]
+            'full_name' => $data['full_name'],
+            'biography' => $data['biography'],
+            'photo' => $data['photo'],
+            'roles_id' => $data['roles_id'],
+            'career' => $data['career']
         ]);
 
-        return $this->pdo->lastInsertId();
+        $temp = $this->pdo->lastInsertId();
+        return $temp;
     }
 
     public function allSoloistsInfo(){

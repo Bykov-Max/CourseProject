@@ -19,7 +19,7 @@
 
             <select name="roles_id" id="roles">
                 <?php foreach ($roles as $item) : ?>
-                    <option value="<?= $item->name ?>"> <?= $item->name ?> </option>
+                    <option value="<?= $item->ID ?>"> <?= $item->name ?> </option>
                 <?php endforeach; ?><br><br>
             </select>
 

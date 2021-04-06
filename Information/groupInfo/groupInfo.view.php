@@ -10,5 +10,4 @@
 
 <a name="change" class = "change" style="display: <?= $_SESSION['auth'] ? 'inline' : 'none' ?>" href="/Information/change/change.php" type="button">Изменть статью</a>
 
-<a name="create" class = "create" style="display: <?= $_SESSION['auth'] ? 'inline' : 'none' ?>" href="/Information/newGroupMember/new.php" type="button">Добавить статью</a>
 <?php include $_SERVER["DOCUMENT_ROOT"] . "/template/footer.php"; ?>

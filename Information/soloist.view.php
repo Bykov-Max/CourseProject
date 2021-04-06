@@ -3,7 +3,7 @@
 
 <?php foreach ($dataInfo as $info): ?>
     <div class="info">
-        <img src="../images/<?= $info->photo ?>" title = "Джон Купер на концерте в 2017 году" alt="">
+        <img src="../images/<?= $info->photo ?>" class="image">
         <h2>Биография</h2><?= $info->biography ?>
         <h2>Карьера</h2><?= $info->career ?>
     </div>
