@@ -10,14 +10,14 @@ class FillingTheBase
         $this->pdo = $pdo;
     }
 
-    public function addSoloist($fullName, $biography, $career, $role, $photo){
-        $stmt = $this->pdo->prepare("insert into group_members, roles (group_members.full_name, group_members.photo, group_members.biography, group_members.career, roles.name) values (:fullName, :biography, :career, :role)");
+    public function addSoloist($fullName, $biography, $career, $role_id, $photo){
+        $stmt = $this->pdo->prepare("insert into group_members (full_name, photo, biography, career, roles_ID) values (:fullName, :photo, :biography, :career, :role_id)");
 
         $stmt->execute([
             'full_name' => $fullName,
             'biography' => $biography,
             'career' => $career,
-            'name' => $role,
+            'role_id' => $role_id,
             'photo' => $photo
         ]);
 

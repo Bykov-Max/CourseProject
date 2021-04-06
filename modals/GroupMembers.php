@@ -10,15 +10,20 @@ class GroupMembers
         $this->pdo = $pdo;
     }
 
-    public function addSoloist($fullName, $biography, $career, $photo){
-        $stmt = $this->pdo->prepare("insert into group_members(full_name, biography, career, photo) values (:fullName, :biography, :career, :photo)");
+    public function addSoloist($data){
+        $stmt = $this->pdo->prepare("insert into group_members(full_name, biography, career, photo, roles_ID) values (:fullName, :biography, :career, :photo, :roles_id:)");
+
+        var_dump($data);
 
         $stmt->execute([
-            'full_name' => $fullName,
-            'biography' => $biography,
-            'career' => $career,
-            'photo' => $photo
+            'full_name' => $data["full_name"],
+            'biography' => $data["biography"],
+            'career' => $data["career"],
+            'photo' => $data["photo"],
+            "roles_id" => $data["roles_id"]
         ]);
+
+        return $this->pdo->lastInsertId();
     }
 
     public function allSoloistsInfo(){

@@ -1,17 +1,19 @@
 <?php
-/**
- * @param $maxFileSize
- * @param $validTypeFiles
- * @param $uploadPath
- * @return string
- */
-function loadImg($maxFileSize, $validTypeFiles, $uploadPath, $nameElem)
+///**
+// * @param $maxFileSize
+// * @param $validTypeFiles
+// * @param $uploadPath
+// * @param $nameElem
+// * @return array
+// */
+function loadImg($maxFileSize, $validFileTypes, $uploadPath, $nameElem)
 {
     $error = "";
     $newName = "";
 
-    if(isset($_FILES["nameElem"])){
-        $file = $_FILES["nameElem"];
+    if(isset($_FILES[$nameElem])){
+        $file = $_FILES[$nameElem];
+
         if(!empty($file["error"])){
             $error = "Произошла ошибка загрузки данных...";
         }
@@ -19,33 +21,34 @@ function loadImg($maxFileSize, $validTypeFiles, $uploadPath, $nameElem)
             $error = "Размер файла не должен превышать ".$maxFileSize."Мб";
         }
         else{
-                $type = mime_content_type($file["tmp_name"]);
+            $type = mime_content_type($file["tmp_name"]);
 
-                $name = pathinfo($file["name"], PATHINFO_FILENAME)."_".time();
-                $ext = pathinfo($file["name"], PATHINFO_EXTENSION);
-                $newName = "$name.$ext";
+            $name = pathinfo($file["name"], PATHINFO_FILENAME)."_".time();
+            $ext = pathinfo($file["name"], PATHINFO_EXTENSION);
+            $newName = "$name.$ext";
 
-            if(in_array($type, $validTypeFiles)){
+            if(in_array($type, $validFileTypes)){
                 if(!move_uploaded_file($file["tmp_name"], $uploadPath.$newName)){
                     $error = "Не удалось загрузить изображение...";
                 }
-            }
-            else{
+            }else{
                 $error = "Расширение файла должно быть таким: jpg, jpeg или png...";
             }
+
         };
 
         if(!empty($error)){
-            return $file["name"]."-".$error;
+            $error = $file["name"]."-".$error;
         }
     }
+
     return [$error, $newName];
 }
 
-/**
- * @param $array
- * @return string
- */
+///**
+// * @param $array
+// * @return string
+// */
 
 function deleteImg($fileName)
 {
