@@ -1,4 +1,5 @@
 <?php include $_SERVER["DOCUMENT_ROOT"] . "/template/header.php";
+
 use App\modals\ShowData; ?>
     <div class="soloists">
         <table border="1">
@@ -24,5 +25,10 @@ use App\modals\ShowData; ?>
 
             <?php endforeach; ?>
         </table>
+        <br>
+        <a name="create" class="create" style="display: <?= $_SESSION['auth'] ? 'button' : 'none' ?>"
+           href="/Information/newGroupMember/index.php?id = <?= $dataInfo->ID ?>">Добавить информацию о солисте</a>
     </div>
+
+
 <?php include $_SERVER["DOCUMENT_ROOT"] . "/template/footer.php"; ?>

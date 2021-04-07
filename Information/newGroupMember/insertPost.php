@@ -21,7 +21,7 @@ if(isset($_POST["createPost"])){
         $members = $groupMembers->addSoloist($data);
 
 
-        header("Location: /Information/newGroupMember/new.php");
+        header("Location: /Information/newGroupMember/index.php");
     }
     else{
         $_SESSION["msg"] = $error;

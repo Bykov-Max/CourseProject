@@ -8,6 +8,6 @@
     <a href="/Information/soloistInfo/?id=<?= $item->ID ?>"> <?= $item->founder ?> </a>
 <?php endforeach; ?>
 
-<a name="change" class = "change" style="display: <?= $_SESSION['auth'] ? 'inline' : 'none' ?>" href="/Information/change/change.php" type="button">Изменть статью</a>
+<a name="change" class = "change" style="display: <?= $_SESSION['auth'] ? 'inline' : 'none' ?>" href="/Information/change/index.php" type="button">Изменть статью</a>
 
 <?php include $_SERVER["DOCUMENT_ROOT"] . "/template/footer.php"; ?>

@@ -5,11 +5,9 @@
         <img src="/images/<?= $dataInfo->photo ?>" class="image">
         <h2>Биография</h2><?= $dataInfo->biography ?>
         <h2>Карьера</h2><?= $dataInfo->career ?>
-        <h2>Карьера</h2><?= $dataInfo->name ?> <br><br>
+        <h2>Роль в группе</h2><?= $dataInfo->name ?> <br><br>
 
-        <a name="change" class = "change" style="display: <?= $_SESSION['auth'] ? 'button' : 'none' ?>" href="/Information/change/change.php">Изменть информацию о солисте</a>
-
-        <a name="create" class = "create" style="display: <?= $_SESSION['auth'] ? 'button' : 'none' ?>" href="/Information/newGroupMember/new.php?id = <?= $dataInfo->ID ?>">Добавить информацию о солисте</a>
+        <a name="change" class = "change" style="display: <?= $_SESSION['auth'] ? 'button' : 'none' ?>" href="/Information/change/index.php">Изменть информацию о солисте</a>
     </div>
 
 
