@@ -10,10 +10,10 @@
             <img src="" alt="" id="loadImage">
 
             <label>Биография</label>
-            <input type="text" name="biography" required> <br><br>
+            <textarea id="textarea" required> </textarea> <br><br>
 
             <label>Карьера</label>
-            <input type="text" name="career" required> <br><br>
+            <textarea id="textarea" required> </textarea> <br><br>
 
             <label>Роль в группе</label>
 

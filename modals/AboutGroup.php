@@ -10,7 +10,7 @@ class AboutGroup{
     }
 
     public function groupInfo(){
-        $stmt = $this->pdo->query("SELECT * FROM aboutGroup inner join events on aboutGroup.events_ID = events.ID ");
+        $stmt = $this->pdo->query("SELECT * FROM about_group");
         $temp = $stmt->fetchAll();
         return $temp;
     }
