@@ -44,4 +44,8 @@ class GroupMembers
 
         return $stmt->fetch();
     }
+
+    public function changeInfo(){
+        $stmt = $this->pdo->prepare("update group_members set ");
+    }
 }

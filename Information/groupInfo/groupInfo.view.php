@@ -5,7 +5,7 @@
     <?= $item->Info ?> <br><br>
 
     <h3>Создатель группы</h3>
-    <a href="/Information/soloistInfo/?id=<?= $item->ID ?>"> <?= $item->founder ?> </a> <br><br>
+    <a href="/Information/soloistInfo/?id=<?= $item->ID = 1 ?>"> <?= $item->founder ?> </a> <br><br>
 
     <h3>История группы</h3>
     <?= $history ?> <br><br>
