@@ -14,4 +14,13 @@ class AboutGroup{
         $temp = $stmt->fetchAll();
         return $temp;
     }
+
+    public function changeInfo($data){
+        $stmt = $this->pdo->prepare("update about_group set info = :info, history = :history");
+
+        $stmt->execute([
+           "info" => $data["info"],
+           "history" => $data["history"]
+        ]);
+    }
 }
