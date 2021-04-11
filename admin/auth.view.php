@@ -15,7 +15,7 @@
 
             <button type="submit" class="btn btn-primary" name="submit">Авторизация</button>
 
-            <p style="color: red"> <?= $res ?> </p>
+            <p style="color: red"> <?= $res ?> </p> <br>
         </form>
     </div>
 <?php include $_SERVER["DOCUMENT_ROOT"] . "/template/footer.php"; ?>

@@ -201,7 +201,11 @@ table {
 }
 
 #biography:active{
-    border: none;
+    outline: none;
+}
+
+#biography:focus {
+    outline: none !important;
 }
 
 #career{
@@ -213,6 +217,7 @@ table {
     cursor: pointer;
     transition: all 1s ease;
     text-align: left;
+    outline: none;
 }
 
 #career:hover{
@@ -226,8 +231,13 @@ table {
 }
 
 #career:active{
-    border: none;
+    outline: none;
 }
+
+#career:focus {
+    outline: none !important;
+}
+
 
 .rotate{
     float: right;

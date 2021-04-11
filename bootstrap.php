@@ -1,9 +1,7 @@
 <?php
-
 use App\db\Connect;
 use App\modals\GroupMembers;
 use App\modals\AboutGroup;
-
 use App\modals\Roles;
 
 include $_SERVER["DOCUMENT_ROOT"] . "/db/config.php";
@@ -13,6 +11,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/modals/AboutGroup.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/modals/ShowData.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/db/functions.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/modals/Roles.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/modals/Validator.php";
 
 $groupMembers = new GroupMembers(Connect::make(CONN));
 $aboutGroup = new AboutGroup(Connect::make(CONN));

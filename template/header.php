@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +15,9 @@
         <div class="container">
             <nav class="site">
                 <a class="logo">Skillet'sFans.ru</a>
-                <a href="/admin/auth.php" class="admin""> <?= isset($_SESSION["auth"]) ? "Выйти": "Для админа" ?> </a>
+                <a href="/admin/auth.php" class="admin"> <?= isset($_SESSION["auth"]) ? "Выйти": "Для админа" ?> </a>
             </nav>
         </div>
     </header>
 
-<?php include "nav.php"; ?>
+ <?php include "nav.php"; ?>

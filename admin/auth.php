@@ -1,7 +1,11 @@
 <?php
 session_start();
+
+include $_SERVER["DOCUMENT_ROOT"]."/bootstrap.php";
+use App\modals\Validator;
+
 if(isset($_POST["submit"])) {
-    if ($_POST['email'] == "admin@ru.ru" && $_POST["password"] == 123456) {
+    if (Validator::preProcessing($_POST['email']) == "admin@ru.ru" && Validator::preProcessing($_POST["password"]) == 123456) {
         $_SESSION["auth"] = true;
         $_SESSION["email"] = $_POST["email"];
         $_SESSION["auth_exit"] = "Выйти";

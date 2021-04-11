@@ -18,7 +18,7 @@
         <h2>Роль в группе</h2><?= $dataInfo->name ?> <br><br>
 
         <a name="change" class="change" style="display: <?= $_SESSION['auth'] ? 'button' : 'none' ?>"
-           href="/Information/aboutGroup/changeInfoAboutGroup/index.php">Изменть информацию о солисте</a>
+           href="">Изменть информацию о солисте</a>
     </div>
 
 

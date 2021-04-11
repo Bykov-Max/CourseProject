@@ -1,16 +1,4 @@
-
-
 let up = document.querySelector(".up");
-
-
-
-
-
-
-
-
-
-
 
 up.addEventListener("click", function(e){
     window.scrollTo({
@@ -18,5 +6,4 @@ up.addEventListener("click", function(e){
         left: 0,
         behavior: "smooth",
     });
-    alert("Error")
 });

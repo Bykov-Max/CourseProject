@@ -17,7 +17,7 @@
 
             <label>Роль в группе</label>
 
-            <select name="roles_id" id="roles">
+            <select name="roles_id" id="roles" multiple>
                 <?php foreach ($roles as $item) : ?>
                     <option value="<?= $item->ID ?>"> <?= $item->name ?> </option>
                 <?php endforeach; ?><br><br>
