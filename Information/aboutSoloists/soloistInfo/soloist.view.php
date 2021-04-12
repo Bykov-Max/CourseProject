@@ -8,7 +8,6 @@
 
         <div class="biography">
             <img src="/images/<?= $dataInfo->photo ?>" class="image"> <?= $dataInfo->biography ?>
-
         </div>
 
 
@@ -21,5 +20,5 @@
            href="">Изменть информацию о солисте</a>
     </div>
 
-
+    <script src="/js/js2.js"></script>
 <?php include $_SERVER["DOCUMENT_ROOT"] . "/template/footer.php"; ?>

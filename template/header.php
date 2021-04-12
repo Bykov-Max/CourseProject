@@ -15,7 +15,7 @@
         <div class="container">
             <nav class="site">
                 <a class="logo">Skillet'sFans.ru</a>
-                <a href="/admin/auth.php" class="admin"> <?= isset($_SESSION["auth"]) ? "Выйти": "Для админа" ?> </a>
+                <a href="/admin/index.php" class="admin"> <?= $_SESSION["auth_exit"] ?> </a>
             </nav>
         </div>
     </header>

@@ -1,17 +1,25 @@
 <?php include $_SERVER["DOCUMENT_ROOT"] . "/template/header.php"; ?>
 
-<?php foreach ($about as $item): ?>
-    <h3>Информация о группе</h3>
-    <?= $item->info ?> <br><br>
+    <div class="aboutGroup">
+        <?php foreach ($about as $item): ?>
+            <button id = "groupInfo">Информация о группе <span class="reverse">V</span> </button> <br><br>
+            <div class = "groupInfo"> <?= $item->info ?> </div> <br>
 
-    <h3>Создатель группы</h3>
-    <a href="/Information/aboutSoloists/soloistInfo?id=<?= $item->ID = 1 ?>"> <?= $item->founder ?> </a> <br><br>
 
-    <h3>История группы</h3>
-    <?= $history ?> <br><br>
-<?php endforeach; ?>
+            <button id = "groupHistory">История группы <span class="reverse2">V</span></button>
+            <div class = "groupHistory"> <?= $history ?> </div> <br><br>
 
-    <a name="change" class="change" style="display: <?= $_SESSION['auth'] ? 'inline' : 'none' ?>"
-       href="/Information/aboutGroup/changeInfoAboutGroup/index.php" type="button">Изменить информацию о группе</a>
 
+            <h2>Создатель группы</h2>
+            <a href="/Information/aboutSoloists/soloistInfo?id=<?= $item->ID = 1 ?>"> <?= $item->founder ?> </a> <br>
+            <br>
+
+
+        <?php endforeach; ?>
+
+        <a name="change" class="change" style="display: <?= $_SESSION['auth'] ? 'inline' : 'none' ?>"
+           href="/Information/aboutGroup/changeInfoAboutGroup/index.php" type="button">Изменить информацию о группе</a>
+    </div>
+
+    <script src="/js/js3.js"></script>
 <?php include $_SERVER["DOCUMENT_ROOT"] . "/template/footer.php"; ?>
