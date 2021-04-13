@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 12 2021 г., 12:05
+-- Время создания: Апр 13 2021 г., 12:06
 -- Версия сервера: 8.0.19
 -- Версия PHP: 7.1.33
 
@@ -51,6 +51,22 @@ CREATE TABLE `albums` (
   `ID` int NOT NULL,
   `name` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `albums`
+--
+
+INSERT INTO `albums` (`ID`, `name`) VALUES
+(1, 'Skillet'),
+(2, 'Hey You, I Love Your Soul'),
+(3, 'Invincible'),
+(4, 'Alien Youth'),
+(5, 'Collide'),
+(6, 'Comatose'),
+(7, 'Awake'),
+(8, 'Rise'),
+(9, 'Unleashed'),
+(10, 'Victorious');
 
 -- --------------------------------------------------------
 
@@ -142,12 +158,20 @@ CREATE TABLE `images` (
 
 CREATE TABLE `musics` (
   `ID` int NOT NULL,
-  `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nameOfText` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `text` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `video` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sound` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `albums_ID` int DEFAULT NULL
+  `albums_ID` int DEFAULT NULL,
+  `video` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sound` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `musics`
+--
+
+INSERT INTO `musics` (`ID`, `nameOfText`, `text`, `albums_ID`, `video`, `sound`) VALUES
+(1, 'I Can', 'Looking on the sad times, the guilt and all the shame <br>\r\nI have learned to submit my existing hurts and pains <br>\r\nAll the grief I\'ve learned to set aside <br>\r\n\'Cause I am, I am, I am, I am... <br><br>\r\n\r\n[Припев:]<br>\r\nFeeling under rooted, feeling undermined <br>\r\nCan this grace of God cover me this time? <br>\r\nAnd when I feel the pain I know why I feel strange <br> \r\nAnd when I hear the rooster crow I am ashamed <br><br>\r\n\r\nJesus on the cross and this cross upon my back <br>\r\nI have learned to submit then I whine about my lie <br> \r\nSometimes I drop my cross deserve a little rest <br>\r\nThat\'s when I run to You and I nail Your feet and Your wrist <br><br>\r\n\r\n[Припев:]<br>\r\nFeeling under rooted, feeling undermined <br>\r\nCan this grace of God cover me this time? <br>\r\nAnd when I feel the pain I know why I feel strange <br>\r\nAnd when I hear the rooster crow I am ashamed <br><br>\r\n\r\nAnd when I feel the pain I know why I feel strange <br>\r\nAnd when I hear the rooster crow I am ashamed <br> \r\nAnd do You really love my soul, even after I hated You? <br>\r\nAnd do You really know my name, can I really come to You? <br><br>\r\n\r\nAre you really more faithful than <br>\r\nThe changing of the seasons and the morning sun? <br>\r\nAnd do You really know my name, can I really come to You? <br>\r\nI can, I can, I can, I can, I can, I can, I can, I can <br>\r\nI can, I can, I can, I can, I can, I can, I can <br>\r\nI don\'t care if the rooster crows, if the rooster crows <br>\r\nIf the rooster crows, if the rooster crows, I can <br>', 1, 'https://www.youtube.com/embed/4iqhCgbLdqw', 'https://music.yandex.ru/iframe/#track/24426672/489742'),
+(2, 'Gasoline', '<pre>\r\nI am sitting with my heart out on the table\r\nI am doing a face to face with God\r\nHe picked up my heat and said\r\nWhat you want me to do with this?\r\nI just blinked my eyes no smile, no laugh, no tears\r\nNo shrugging my shoulders\r\nIt crossed my mind, Yeah I got an idea\r\nYou could take my heart and put it in a padlocked box\r\nWhat if they grab too hard or smash it, or throw it down\r\nI am scared of being hurt, I just want to live, live a happy life!\r\n\r\n[Припев:]\r\nYou want to, you want to\r\nSoak my heart in gasoline\r\nLight a match and consume me\r\nSoak my pride in gasoline all of you and none of me\r\n\r\n\r\nI was reminded my heart reeks of gasoline\r\nIt bears the mark of a slave committed to life\r\nAnyone who wants it\r\nWill have to grab it from a real big God try to touch me\r\nYou will be consumed, you¬ will be consumed I want to, I want to\r\n\r\n[Припев:]\r\nI am sitting here with my heart out on the table\r\nNext to a bloody mess that was once a man\'s heart\r\nI looked at God and said, What do you want me to do with this?\r\nHe said, Already done, already done, that heart was Jesus \r\n</pre>', 1, 'https://www.youtube.com/embed/bURrpxHSdT0', 'https://music.yandex.ru/iframe/#track/24426673/489742');
 
 -- --------------------------------------------------------
 
@@ -264,7 +288,7 @@ ALTER TABLE `tours`
 -- AUTO_INCREMENT для таблицы `albums`
 --
 ALTER TABLE `albums`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблицы `cities`
@@ -294,7 +318,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT для таблицы `musics`
 --
 ALTER TABLE `musics`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `roles`

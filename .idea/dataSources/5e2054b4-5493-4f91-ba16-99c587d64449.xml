@@ -1173,7 +1173,7 @@ APPLICATION_PASSWORD_ADMIN,AUDIT_ADMIN,BACKUP_ADMIN,BINLOG_ADMIN,BINLOG_ENCRYPTI
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="340" parent="297" name="name">
+    <column id="340" parent="297" name="nameOfText">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
@@ -1183,19 +1183,17 @@ APPLICATION_PASSWORD_ADMIN,AUDIT_ADMIN,BACKUP_ADMIN,BINLOG_ADMIN,BINLOG_ENCRYPTI
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="342" parent="297" name="video">
+    <column id="342" parent="297" name="albums_ID">
       <Position>4</Position>
-      <DataType>varchar(100)|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>int|0s</DataType>
     </column>
-    <column id="343" parent="297" name="sound">
+    <column id="343" parent="297" name="video">
       <Position>5</Position>
       <DataType>varchar(100)|0s</DataType>
-      <NotNull>1</NotNull>
     </column>
-    <column id="344" parent="297" name="albums_ID">
+    <column id="344" parent="297" name="sound">
       <Position>6</Position>
-      <DataType>int|0s</DataType>
+      <DataType>varchar(100)|0s</DataType>
     </column>
     <index id="345" parent="297" name="albums_ID">
       <ColNames>albums_ID</ColNames>

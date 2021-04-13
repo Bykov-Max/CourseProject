@@ -2,6 +2,6 @@
 session_start();
 include $_SERVER["DOCUMENT_ROOT"]."/bootstrap.php";
 
-$music = $musics->getMusic();
+$dataInfo = $groupMembers->allSoloistsInfo();
 
-include "musicText.view.php";
+include "allSoloists.view.php";

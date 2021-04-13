@@ -2,6 +2,6 @@
 session_start();
 include $_SERVER["DOCUMENT_ROOT"]."/bootstrap.php";
 
-$music = $musics->getMusic();
+$album = $albums->getAlbums();
 
-include "musicText.view.php";
+include "albums.view.php";

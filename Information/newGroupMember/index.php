@@ -2,6 +2,6 @@
 session_start();
 include $_SERVER["DOCUMENT_ROOT"]."/bootstrap.php";
 
-$music = $musics->getMusic();
+$roles = $memberRoles->getRoles();
 
-include "musicText.view.php";
+include "new.view.php";
