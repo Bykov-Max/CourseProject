@@ -1,13 +1,9 @@
 <?php include $_SERVER["DOCUMENT_ROOT"] . "/template/header.php"; ?>
 <div class="musicText">
-    <?php foreach ($music as $item): ?>
-        <a href="#<?= $item->ID ?>" class = "music"> <?= $item->nameOfText ?> </a>  <br>
-    <?php endforeach; ?><br><br>
-
 
     <?php foreach ($music as $item): ?>
 
-        <a id="<?= $item->ID ?>"> <?= $item->nameOfText ?> </a> <br>
+        <?= $item->nameOfText ?> <br>
 
         <?= $item->text ?><br><br>
         <iframe width="560" height="315" src="<?= $item->video ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

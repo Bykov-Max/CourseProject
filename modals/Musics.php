@@ -10,13 +10,31 @@ class Musics
         $this->pdo = $pdo;
     }
 
-    public function getMusic(){
-        $stmt = $this->pdo->query("select musics.*, albums.name 
+    public function getMusic($id){
+        $stmt = $this->pdo->prepare("select musics.*, albums.name 
                     from musics 
-                    inner join albums on musics.albums_ID = albums.ID");
+                    inner join albums on musics.albums_ID = albums.ID
+                    where musics.albums_ID = :id");
+
+        $stmt->execute([
+            "id" => $id
+        ]);
 
         $temp = $stmt->fetchAll();
         return $temp;
+    }
+
+    public function getOneMusic($id){
+        $stmt = $this->pdo->prepare("select musics.*, albums.name 
+                    from musics 
+                    inner join albums on musics.albums_ID = albums.ID
+                    where musics.ID = :music_id");
+
+        $stmt->execute([
+           "music_id" => $id
+        ]);
+
+        return $stmt->fetch();
     }
 
     public function addMusic($data){
