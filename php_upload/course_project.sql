@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 13 2021 г., 12:06
+-- Время создания: Апр 14 2021 г., 12:11
 -- Версия сервера: 8.0.19
 -- Версия PHP: 7.1.33
 
@@ -49,24 +49,26 @@ INSERT INTO `about_group` (`info`, `founder`, `date_of_creation`, `history`) VAL
 
 CREATE TABLE `albums` (
   `ID` int NOT NULL,
-  `name` varchar(100) DEFAULT NULL
+  `name` varchar(100) DEFAULT NULL,
+  `photoOfAlbum` varchar(100) NOT NULL,
+  `dateOfCreation` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Дамп данных таблицы `albums`
 --
 
-INSERT INTO `albums` (`ID`, `name`) VALUES
-(1, 'Skillet'),
-(2, 'Hey You, I Love Your Soul'),
-(3, 'Invincible'),
-(4, 'Alien Youth'),
-(5, 'Collide'),
-(6, 'Comatose'),
-(7, 'Awake'),
-(8, 'Rise'),
-(9, 'Unleashed'),
-(10, 'Victorious');
+INSERT INTO `albums` (`ID`, `name`, `photoOfAlbum`, `dateOfCreation`) VALUES
+(1, 'Skillet', 'Skillet.jpeg', '29 октября 1996'),
+(2, 'Hey You, I Love Your Soul', 'Hey_You,_I_Love_Your_Soul.jpeg', '21 апреля 1998'),
+(3, 'Invincible', 'Invincible.jpeg', '1 февраля 2000'),
+(4, 'Alien Youth', 'Alien_Youth.jpeg', '22 августа 2001'),
+(5, 'Collide', 'Collide.jpg', '18 ноября 2003'),
+(6, 'Comatose', 'Comatose.jpg', '3 октября 2006'),
+(7, 'Awake', 'Awake.jpg', '25 августа 2009'),
+(8, 'Rise', 'Rise.jpg', '25 июня 2013'),
+(9, 'Unleashed', 'Unleashed.jpg', '5 августа 2016'),
+(10, 'Victorious', 'Victorious.jpg', '2 августа 2019');
 
 -- --------------------------------------------------------
 
@@ -158,11 +160,11 @@ CREATE TABLE `images` (
 
 CREATE TABLE `musics` (
   `ID` int NOT NULL,
-  `nameOfText` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nameOfText` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `text` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `albums_ID` int DEFAULT NULL,
-  `video` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sound` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `video` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sound` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -171,7 +173,12 @@ CREATE TABLE `musics` (
 
 INSERT INTO `musics` (`ID`, `nameOfText`, `text`, `albums_ID`, `video`, `sound`) VALUES
 (1, 'I Can', 'Looking on the sad times, the guilt and all the shame <br>\r\nI have learned to submit my existing hurts and pains <br>\r\nAll the grief I\'ve learned to set aside <br>\r\n\'Cause I am, I am, I am, I am... <br><br>\r\n\r\n[Припев:]<br>\r\nFeeling under rooted, feeling undermined <br>\r\nCan this grace of God cover me this time? <br>\r\nAnd when I feel the pain I know why I feel strange <br> \r\nAnd when I hear the rooster crow I am ashamed <br><br>\r\n\r\nJesus on the cross and this cross upon my back <br>\r\nI have learned to submit then I whine about my lie <br> \r\nSometimes I drop my cross deserve a little rest <br>\r\nThat\'s when I run to You and I nail Your feet and Your wrist <br><br>\r\n\r\n[Припев:]<br>\r\nFeeling under rooted, feeling undermined <br>\r\nCan this grace of God cover me this time? <br>\r\nAnd when I feel the pain I know why I feel strange <br>\r\nAnd when I hear the rooster crow I am ashamed <br><br>\r\n\r\nAnd when I feel the pain I know why I feel strange <br>\r\nAnd when I hear the rooster crow I am ashamed <br> \r\nAnd do You really love my soul, even after I hated You? <br>\r\nAnd do You really know my name, can I really come to You? <br><br>\r\n\r\nAre you really more faithful than <br>\r\nThe changing of the seasons and the morning sun? <br>\r\nAnd do You really know my name, can I really come to You? <br>\r\nI can, I can, I can, I can, I can, I can, I can, I can <br>\r\nI can, I can, I can, I can, I can, I can, I can <br>\r\nI don\'t care if the rooster crows, if the rooster crows <br>\r\nIf the rooster crows, if the rooster crows, I can <br>', 1, 'https://www.youtube.com/embed/4iqhCgbLdqw', 'https://music.yandex.ru/iframe/#track/24426672/489742'),
-(2, 'Gasoline', '<pre>\r\nI am sitting with my heart out on the table\r\nI am doing a face to face with God\r\nHe picked up my heat and said\r\nWhat you want me to do with this?\r\nI just blinked my eyes no smile, no laugh, no tears\r\nNo shrugging my shoulders\r\nIt crossed my mind, Yeah I got an idea\r\nYou could take my heart and put it in a padlocked box\r\nWhat if they grab too hard or smash it, or throw it down\r\nI am scared of being hurt, I just want to live, live a happy life!\r\n\r\n[Припев:]\r\nYou want to, you want to\r\nSoak my heart in gasoline\r\nLight a match and consume me\r\nSoak my pride in gasoline all of you and none of me\r\n\r\n\r\nI was reminded my heart reeks of gasoline\r\nIt bears the mark of a slave committed to life\r\nAnyone who wants it\r\nWill have to grab it from a real big God try to touch me\r\nYou will be consumed, you¬ will be consumed I want to, I want to\r\n\r\n[Припев:]\r\nI am sitting here with my heart out on the table\r\nNext to a bloody mess that was once a man\'s heart\r\nI looked at God and said, What do you want me to do with this?\r\nHe said, Already done, already done, that heart was Jesus \r\n</pre>', 1, 'https://www.youtube.com/embed/bURrpxHSdT0', 'https://music.yandex.ru/iframe/#track/24426673/489742');
+(2, 'Gasoline', '<pre>\r\nI am sitting with my heart out on the table\r\nI am doing a face to face with God\r\nHe picked up my heat and said\r\nWhat you want me to do with this?\r\nI just blinked my eyes no smile, no laugh, no tears\r\nNo shrugging my shoulders\r\nIt crossed my mind, Yeah I got an idea\r\nYou could take my heart and put it in a padlocked box\r\nWhat if they grab too hard or smash it, or throw it down\r\nI am scared of being hurt, I just want to live, live a happy life!\r\n\r\n[Припев:]\r\nYou want to, you want to\r\nSoak my heart in gasoline\r\nLight a match and consume me\r\nSoak my pride in gasoline all of you and none of me\r\n\r\n\r\nI was reminded my heart reeks of gasoline\r\nIt bears the mark of a slave committed to life\r\nAnyone who wants it\r\nWill have to grab it from a real big God try to touch me\r\nYou will be consumed, you¬ will be consumed I want to, I want to\r\n\r\n[Припев:]\r\nI am sitting here with my heart out on the table\r\nNext to a bloody mess that was once a man\'s heart\r\nI looked at God and said, What do you want me to do with this?\r\nHe said, Already done, already done, that heart was Jesus \r\n</pre>', 1, 'https://www.youtube.com/embed/bURrpxHSdT0', 'https://music.yandex.ru/iframe/#track/24426673/489742'),
+(3, 'Saturn', '<pre>\r\nI ask him\r\nWhen will I\r\nBe free\r\nHe said I am asking Him\r\nWhen will I change\r\nHe said\r\nNo matter now\r\nNo matter now\r\n\r\nSaturn has a ring around it\r\nYou can never see it with your eyes\r\nSaturn has a ring around it\r\nMany moons know this to be true\r\n\r\nYou ask him\r\nHow can you\r\nBe real\r\nHe Said you\'ll be\r\nKnowing him\r\nHow you do\r\nNow he says\r\nRest in this\r\nRest in this\r\n\r\nSaturn has a ring around it\r\nYou can never see it with your eyes\r\nSaturn has a ring around it\r\nMany moons know this to be true\r\nHeaven has a ring around it\r\nThe angels sing a song over you\r\nHeaven has a ring around you\r\nIf you don\'t see it know that it\'s true \r\n</pre>', 1, 'https://www.youtube.com/embed/N_Dc3a4Ry-0', 'https://music.yandex.ru/iframe/#track/24426674/489742'),
+(4, 'My beautifull robe', '<pre>\r\nI want pleasure in Your sight\r\nI want to subscribe to Your delight\r\nSo hold on and see what I do for You\r\nOh by the way, did you see me dressed in my beautiful robe?\r\nMy head was bleeding so red\r\nBut of all the thorns in my crown, the roses blended\r\nInstead with my beautiful robe carries on, I\'ll carry on\r\nI cut down a tree said, \"Man would you look at me\"\r\nI stuck my head in a thorn bush\r\nMan I was deceived\r\nOh my brother, your hands are full of sores\r\nИсточник teksty-pesenok.ru\r\nBut God bless you brother, my nails are longer than yours\r\nI was crucified with Christ but how come I\'m not dead\r\nGod gave me a cross but I made my own instead\r\nMy beautiful cross carries on, I\'ll carry on\r\nI cut down a tree\r\nI nailed myself to the wood\r\nI screamed in agony\r\n\'Cause the glory wasn\'t so good\r\nI fell to my knees and I remember\r\nThe words of God pierced so hard, \"Your righteousness is like filthy rags\"\r\nAnd I fell to my knees and said, \"God my filthy robe\"\r\n</pre>', 1, 'https://www.youtube.com/embed/yOgqmj6oE84', 'https://music.yandex.ru/iframe/#track/24426675/489742'),
+(5, 'Promise Blender', '<pre>\r\nWhen I was a young boy\r\nSaw a vision of your face\r\nI made my first promise to you\r\nYeah ya know it took some time\r\nBut I love you now I realize\r\n\r\nI am the promise maker\r\nI am the promise breaker\r\n\r\nOn the road to faithfulness\r\nI sometimes forget your name\r\nBut I can still see your face\r\n\r\nAnd time after time\r\nI hear you calling my name\r\nI gotta name for me\r\nI gotta name for me\r\nI gotta name for me\r\nI gotta name\r\n\r\nI am the promise maker\r\nI am the promise breaker\r\n\r\nOn my knees for the last time\r\nI could rip my heart out everyday\r\nI made my last promise to you\r\n\r\nYeah I could cry I could cry\r\nA million tears a day\r\nAnd all I would hear you\r\nAll I would hear you say\r\n\r\nIs you are the promise taker\r\nYou are the promise taker\r\nYou are the promise taker\r\nPut them in your promise blender\r\n\r\nYou took me\r\nAnd you own me\r\nAnd you bought me\r\nand you love me\r\n\r\nPromise keeper, keeper, keeper \r\n</pre>', 1, 'https://www.youtube.com/embed/FOl7SwfAwz0', 'https://music.yandex.ru/iframe/#track/24426676/489742'),
+(6, 'Paint', '<pre>\r\nWe take a walk in the garden\r\nWe share the fruits of life\r\nWe live beneath this canopy\r\nWhy did we take that bite?\r\nWe cover up our shame\r\nWe walk in black and white\r\nWe turn this ground for hunger\r\nWhy did we take that bite?\r\nPaint me with an endless sunrise, Paint me\r\nPaint me open eyes, Paint me with the color of love\r\nYou took a walk on the planet\r\nYou gave us shad and light\r\nYou create mood and substance\r\nHow can I can take a bite?\r\nPaint me with an endless sunrise, Paint me\r\nPaint me open eyes, Paint me with the color of love\r\nPaint me, mark me up,\r\nIn these frail, dot-to-dot lines\r\nColor me from one red stream\r\nFrom which all others flow\r\nTake my black and white and yellow\r\nBrown and pink and pain and sorrow\r\nTake my black and white and yellow\r\nBrown and pink and hate and sorrow\r\nPaint me with an endless sunrise, Paint me\r\nPaint me open eyes, Paint me with the color of love \r\n</pre>', 1, 'https://www.youtube.com/embed/OZBLZdHmVVE', 'https://music.yandex.ru/iframe/#track/24426677/489742'),
+(7, 'Safe with You', '<pre>\r\nLearning inside\r\nI will be safe with You tonight\r\nYou cause the smile\r\nAnd the teardrops in my eyes\r\nLocked inside Your every movement\r\nWill I stand or will I fall?\r\nTrapped inside Your walls of glory\r\nI am just as the dead leaves fall, yup\r\nChaos in my head\r\nThe whole universe is at rest\r\nWhen I\'m in Your arms, Jesus\r\nWhen I feel the best\r\nLocked inside Your creative being\r\nWorld abound in Your unfailing truth\r\nAttacked with power by ferocious love\r\nSalvation alone belongs to You\r\nLifting up my voice\r\nTo the God who really sees\r\nThe God who is consumed\r\nWith loving thoughts of me\r\nThe screaming winds\r\nAnd the crashing of the oceans\r\nShifting sand and the changing of seasons\r\nAs I stand in awe and wonder\r\nNothin\' in the world prepared me for You!\r\nNever prepared me for You!\r\nSafe with You\r\nI\'ll be safe with You\r\nI\'ll be safe with You\r\nYeah-yeah\r\nI\'ll be safe with You\r\nJesus, Jesus, I\'ll be safe with You\r\nJesus, Jesus, I\'ll be safe with You\r\nYeah, yeah-yeah\r\n</pre>', 1, 'https://www.youtube.com/embed/HADzLnaTTaI', 'https://music.yandex.ru/iframe/#track/24426678/489742');
 
 -- --------------------------------------------------------
 
@@ -318,7 +325,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT для таблицы `musics`
 --
 ALTER TABLE `musics`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблицы `roles`

@@ -396,3 +396,24 @@ pre{
     font-size: 1rem;
 }
 
+.albums{
+    background-color: silver;
+    padding: 10px;
+}
+
+.albumImages{
+    height: 200px;
+}
+
+.albums table{
+    margin: 10px auto;
+    width: 60%;
+    background-color: white;
+}
+
+
+.albums table td, th {
+    border: 1.5px solid black;
+    text-align: center;
+    padding: 8px;
+}

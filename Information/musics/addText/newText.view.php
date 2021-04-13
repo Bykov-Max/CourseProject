@@ -16,6 +16,12 @@
                 <?php endforeach; ?><br><br>
             </select><br><br>
 
+            <label>Ссылка на видео</label>
+            <input type="text" name="video"><br><br>
+
+            <label>Ссылка на музыку</label>
+            <input type="text" name="sound"><br><br>
+
             <button name="createText">Добавить текст песни</button>
         </form>
     </div>

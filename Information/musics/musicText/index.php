@@ -2,6 +2,7 @@
 session_start();
 include $_SERVER["DOCUMENT_ROOT"]."/bootstrap.php";
 
-$music = $musics->getMusic();
+$id = $_GET["id"];
+$music = $musics->getOneMusic($id);
 
 include "musicText.view.php";

@@ -1,13 +1,30 @@
 <?php include $_SERVER["DOCUMENT_ROOT"] . "/template/header.php"; ?>
     <div class="albums">
-        <?php foreach ($album as $item): ?>
-            <label>Название альбома</label>
-            <?= $item->name ?> <br><br>
+        <table cellspacing="0">
+            <tr>
+                <th>Обложка альбома</th>
+                <th>Название альбома</th>
+                <th>Дата созданияs</th>
+            </tr>
+            <?php foreach ($album as $item): ?>
+                <tr>
+                    <td>
+                        <a href="/Information/musics/musicInAlbum?id=<?= $item->ID ?>" name="id"> <img src="/imagesForBase/<?= $item->photoOfAlbum ?>" class = "albumImages">
+                        </a>
+                    </td>
 
-            <a href="/Information/musics/musicText/id=<?= $item->ID ?>" style="display: <?= $_SESSION['auth'] ? 'button' : 'none' ?>" name = "albums_ID">Песни, входящие в альбом</a>
-        <?php endforeach; ?>
+                    <td>
+                        <?= $item->name ?>
+                    </td>
 
+                    <td>
+                        <?= $item->dateOfCreation ?>
+                    </td>
+                </tr>
 
+            <?php endforeach; ?>
+
+        </table>
     </div>
 
-<?php include $_SERVER["DOCUMENT_ROOT"]."/template/footer.php"; ?>
+<?php include $_SERVER["DOCUMENT_ROOT"] . "/template/footer.php"; ?>

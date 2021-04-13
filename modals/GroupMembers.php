@@ -44,4 +44,16 @@ class GroupMembers
 
         return $stmt->fetch();
     }
+
+    public function updateMemberInfo($data){
+        $stmt = $this->pdo->prepare("update group_members set full_name = :full_name, biography = :biography, photo = :photo, roles_ID = :roles_id career = :career");
+        $stmt->execute([
+            'full_name' => $data['full_name'],
+            'biography' => $data['biography'],
+            'photo' => $data['photo'],
+            'roles_id' => $data['roles_id'],
+            'career' => $data['career']
+        ]);
+
+    }
 }

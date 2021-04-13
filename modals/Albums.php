@@ -15,4 +15,24 @@ class Albums
         $temp = $stmt->fetchAll();
         return $temp;
     }
+
+    public function addAlbum($data){
+        $stmt = $this->pdo->prepare("insert into albums(name, photoOfAlbum, dateOfCreation) values(:name, :photo, :dateOfCreation)");
+
+        $stmt->execute([
+           "name" => $data['name'],
+           "photo" => $data['photo'],
+           "dateOfCreation" => $data['dateOfCreation'],
+        ]);
+    }
+
+    public function updateAlbum($data){
+        $stmt = $this->pdo->prepare("update albums set name = :name, photoOfAlbum = :photo, dateOfCreation = :dateOfCreation");
+
+        $stmt->execute([
+            "name" => $data['name'],
+            "photo" => $data['photo'],
+            "dateOfCreation" => $data['dateOfCreation'],
+        ]);
+    }
 }
