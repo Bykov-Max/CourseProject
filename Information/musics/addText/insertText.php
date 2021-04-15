@@ -2,7 +2,7 @@
 session_start();
 include $_SERVER["DOCUMENT_ROOT"] . "/bootstrap.php";
 
-if(isset($_POST["addMusic"])){
+
     if(isset($_POST["createText"])){
 
         $data["name"] = $_POST['name'];
@@ -10,8 +10,6 @@ if(isset($_POST["addMusic"])){
         $data["albums_ID"] = (int)$_POST["albums_ID"];
         $data["video"] = $_POST["video"];
         $data["sound"] = $_POST["sound"];
-
-        [$error, $fileName] = loadImg($maxFileSize, $validFileTypes, $uploadPath, "photo");
 
 
         if(empty($error)){
@@ -22,13 +20,14 @@ if(isset($_POST["addMusic"])){
             $text = $musics->addMusic($data);
 
 
+
             header("Location: /Information/musics/addText/index.php");
         }
         else{
             $_SESSION["msg"] = $error;
             $_SESSION["alert"] = "alert-danger";
-            header("Location: /Information/musics/addText/index.php");
+            header("Location: /Information/musics/addText/newText.view.php");
         }
     }
-}
+
 
