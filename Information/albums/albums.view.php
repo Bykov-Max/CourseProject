@@ -1,5 +1,6 @@
 <?php include $_SERVER["DOCUMENT_ROOT"] . "/template/header.php"; ?>
     <div class="albums">
+<<<<<<< HEAD
         <table cellspacing="0">
             <tr>
                 <th>Обложка альбома</th>
@@ -16,6 +17,17 @@
                     <td>
                         <?= $item->name ?>
                     </td>
+=======
+        <?php foreach ($album as $item): ?>
+            <label>Обложка альбома</label>
+            <a href="/Information/musics/musicInAlbum?id=<?= $item->ID ?>" name="id">
+                <img src="/imagesForBase/<?= $item->photoOfAlbum ?>">
+            </a> <br><br>
+
+            <label>Название альбома</label>
+            <?= $item->name ?> <br><br>
+        <?php endforeach; ?>
+>>>>>>> origin/master
 
                     <td>
                         <?= $item->dateOfCreation ?>

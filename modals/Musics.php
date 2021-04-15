@@ -34,8 +34,12 @@ class Musics
            "music_id" => $id
         ]);
 
+<<<<<<< HEAD
         $temp = $stmt->fetch();
         return $temp;
+=======
+        return $stmt->fetch();
+>>>>>>> origin/master
     }
 
     public function addMusic($data){
