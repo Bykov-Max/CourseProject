@@ -6,7 +6,7 @@ class ShowData{
         return date($format, strtotime($data));
     }
 
-    public static function showText($data, $length = 235, $symbols = '...'){
+    public static function showText($data, $length = 100, $symbols = '...'){
         return mb_substr($data, 0, $length).$symbols;
     }
 }

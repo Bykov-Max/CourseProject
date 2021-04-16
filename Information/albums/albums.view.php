@@ -9,7 +9,7 @@
             <?php foreach ($album as $item): ?>
                 <tr>
                     <td>
-                        <a href="/Information/musics/musicInAlbum?id=<?= $item->ID ?>" name="id"> <img src="/imagesForBase/<?= $item->photoOfAlbum ?>" class = "albumImages">
+                        <a href="/Information/musics/musicInAlbum?albumId=<?= $item->ID ?>" name="id"> <img src="/imagesForBase/<?= $item->photoOfAlbum ?>" class = "albumImages">
                         </a>
                     </td>
 

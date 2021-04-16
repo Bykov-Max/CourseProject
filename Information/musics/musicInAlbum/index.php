@@ -2,7 +2,7 @@
 session_start();
 include $_SERVER["DOCUMENT_ROOT"]."/bootstrap.php";
 
-$id = $_GET["id"];
+$id = $_GET["albumId"];
 $mus = $musics->getMusic($id);
 
 

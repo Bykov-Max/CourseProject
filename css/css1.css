@@ -51,8 +51,9 @@ main{
 }
 
 main>img{
-    width: 60%;
+    width: 100%;
     max-width: 100%;
+    object-fit: cover;
 }
 
 @media all and (max-width: 992px){
@@ -87,8 +88,22 @@ main>img{
          grid-template-columns: 1fr;
     }
 
-    main img{
-        width: 60%;
+    table{
+        width: 100%;
+    }
+
+    .solo{
+        width: 100%;
+        height: auto;
+    }
+
+    .photo{
+        width: 150%;
+        height: auto;
+    }
+
+    .biog{
+        height: 50px;
     }
 }
 
@@ -298,6 +313,10 @@ table {
 .up:hover{
     opacity: 100%;
     transition: ease 1s;
+}
+
+.up:focus {
+    outline: none !important;
 }
 
 .aboutGroup{

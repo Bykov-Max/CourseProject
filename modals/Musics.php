@@ -46,7 +46,7 @@ class Musics
             "text" => $data["text"],
             "albums_ID" => $data["albums_ID"],
             "video" => $data["video"],
-            "sound" => $data["sound"]
+            "sound" => $data["sound"],
         ]);
 
         return $this->pdo->lastInsertId();

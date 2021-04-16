@@ -4,7 +4,7 @@ use App\modals\ShowData; ?>
     <div class="soloists">
         <table border="1">
             <tr>
-                <th>Фото</th>
+                <th class="photo">Фото</th>
                 <th>ФИО</th>
                 <th>Биография</th>
                 <th>Роль в группе</th>
@@ -14,11 +14,11 @@ use App\modals\ShowData; ?>
 
                 <tr>
                     <td><a href="/Information/aboutSoloists/soloistInfo?id=<?= $info->ID ?>">
-                            <img src="/images/<?= $info->photo ?>" alt="" width="200px">
+                            <img src="/images/<?= $info->photo ?>" alt="" width="200px" class="solo">
                         </a>
                     </td>
                     <td> <?= $info->full_name ?> </td>
-                    <td width="760px"> <?= ShowData::showText($info->biography) ?> </td>
+                    <td class="biog"> <?= ShowData::showText($info->biography) ?> </td>
                     <td> <?= $info->name ?> </td>
                 </tr>
 
@@ -27,7 +27,8 @@ use App\modals\ShowData; ?>
         </table>
         <br>
         <a name="create" class="create" style="display: <?= $_SESSION['auth'] ? 'button' : 'none' ?>"
-           href="/Information/aboutSoloists/newGroupMember/index.php?id = <?= $dataInfo->ID ?>">Добавить информацию о солисте</a>
+           href="/Information/aboutSoloists/newGroupMember/index.php?id = <?= $dataInfo->ID ?>">Добавить информацию о
+            солисте</a>
     </div>
 
 
