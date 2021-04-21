@@ -25,4 +25,3 @@ else{
     }
 }
 
-include $_SERVER["DOCUMENT_ROOT"]."/admin/auth.view.php";

@@ -25,6 +25,9 @@
             <?php endforeach; ?>
 
         </table>
+
+        <button class="up"> НАВЕРХ </button>
+        <script src="/js/js1.js"></script>
     </div>
 
 <?php include $_SERVER["DOCUMENT_ROOT"] . "/template/footer.php"; ?>

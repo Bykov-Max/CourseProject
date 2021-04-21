@@ -20,5 +20,8 @@
            href="">Изменть информацию о солисте</a>
     </div>
 
+
+    <button class="up"> НАВЕРХ </button>
+    <script src="/js/js1.js"></script>
     <script src="/js/js2.js"></script>
 <?php include $_SERVER["DOCUMENT_ROOT"] . "/template/footer.php"; ?>
