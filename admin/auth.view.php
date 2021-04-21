@@ -1,6 +1,7 @@
 <?php include $_SERVER["DOCUMENT_ROOT"] . "/template/header.php"; ?>
     <div class="form">
-        <form action="" method="post" align="center" class="auth">
+        <img src="/images/skillet(3).jpg">
+        <form action="auth.php" method="post" align="center" class="auth">
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="email" name="email">

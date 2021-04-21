@@ -12,7 +12,7 @@
 <body>
 <div class="content">
     <header>
-        <div class="container">
+        <div class="container"  style="display: <?= $_SESSION['auth'] ? "block":"none" ?>">
             <nav class="site">
                 <a class="logo">Skillet'sFans.ru</a>
                 <a href="/admin/index.php" class="admin"> <?= $_SESSION["auth_exit"] ?> </a>

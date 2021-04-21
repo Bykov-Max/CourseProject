@@ -21,5 +21,7 @@
            href="/Information/aboutGroup/changeInfoAboutGroup/index.php" type="button">Изменить информацию о группе</a>
     </div>
 
+    <button class="up"> НАВЕРХ </button>
+    <script src="/js/js1.js"></script>
     <script src="/js/js3.js"></script>
 <?php include $_SERVER["DOCUMENT_ROOT"] . "/template/footer.php"; ?>
