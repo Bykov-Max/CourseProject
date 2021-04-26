@@ -24,6 +24,8 @@ class Albums
            "photo" => $data['photo'],
            "dateOfCreation" => $data['dateOfCreation'],
         ]);
+
+        return $this->pdo->lastInsertId();
     }
 
     public function updateAlbum($data){

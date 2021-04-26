@@ -1,4 +1,5 @@
 <?php
+session_start();
 use App\db\Connect;
 use App\modals\GroupMembers;
 use App\modals\AboutGroup;

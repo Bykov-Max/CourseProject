@@ -20,6 +20,8 @@ if (isset($_POST["createText"])) {
 
 
         header("Location: /Information/musics/addText/index.php");
+
+
     } else {
         $_SESSION["msg"] = $error;
         $_SESSION["alert"] = "alert-danger";

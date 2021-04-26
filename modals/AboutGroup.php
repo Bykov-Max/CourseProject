@@ -23,4 +23,17 @@ class AboutGroup{
            "history" => $data["history"]
         ]);
     }
+
+    public function addInfo($data){
+        $stmt = $this->pdo->prepare("insert into about_group (info, founder, date_of_creation, history) values (:info, :founder, :date_of_creation, :history)");
+
+        $stmt->execute([
+            "info" => $data["info"],
+            "history" => $data["history"],
+            "founder" => $data["founder"],
+            "date_of_creation" => $data["date_of_creation"]
+        ]);
+
+        return $this->pdo->lastInsertId();
+    }
 }

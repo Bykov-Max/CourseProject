@@ -11,7 +11,7 @@ class Musics
     }
 
     public function getMusic($id){
-        $stmt = $this->pdo->prepare("select musics.*, albums.name 
+        $stmt = $this->pdo->prepare("select musics.*
                     from musics 
                     inner join albums on musics.albums_ID = albums.ID
                     where musics.albums_ID = :id");
@@ -25,7 +25,7 @@ class Musics
     }
 
     public function getOneMusic($id){
-        $stmt = $this->pdo->prepare("select musics.*, albums.name 
+        $stmt = $this->pdo->prepare("select musics.*, albums.name
                     from musics 
                     inner join albums on musics.albums_ID = albums.ID
                     where musics.ID = :music_id");
@@ -39,7 +39,8 @@ class Musics
     }
 
     public function addMusic($data){
-        $stmt = $this->pdo->prepare("insert into musics (nameOfText, text, albums_ID, video, sound) values (:name, :text, :albums_ID, :video, :sound)");
+        $stmt = $this->pdo->prepare("insert into musics (nameOfText, text, albums_ID, video, sound) 
+                                values (:name, :text, :albums_ID, :video, :sound)");
 
         $stmt->execute([
             "name" => $data["name"],
@@ -53,15 +54,25 @@ class Musics
     }
 
     public function updateMusic($data){
-        $stmt = $this->pdo->prepare("update musics set nameOfText = :name, text = :text , albums_ID = :albums_ID, video = :video, sound =  :sound");
+        $stmt = $this->pdo->prepare("update musics set nameOfText = :nameOfText, text = :text , albums_ID = :albums_ID, video = :video, sound = :sound
+                    where ID = :id");
+
 
         $stmt->execute([
-            "name" => $data["name"],
-            "text" => $data["text"],
-            "albums_ID" => $data["albums_ID"],
-            "video" => $data["video"],
-            "sound" => $data["sound"]
+            ":id" => $data["id"],
+            ":nameOfText" => $data["name"],
+            ":text" => $data["text"],
+            ":albums_ID" => $data["albums_ID"],
+            ":video" => $data["video"],
+            ":sound" => $data["sound"]
         ]);
+    }
 
+    public function deleteMusic($id){
+        $stmt = $this->pdo->prepare("delete from musics where ID = :id");
+
+        $stmt->execute([
+            "id" => $id
+        ]);
     }
 }

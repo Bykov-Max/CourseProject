@@ -2,8 +2,8 @@
 session_start();
 include $_SERVER["DOCUMENT_ROOT"]."/bootstrap.php";
 
-$id = $_POST["id"];
+$id = $_GET["musicId"];
 $album = $albums->getAlbums();
-$music = $musics->getMusic($id);
+$music = $musics->getOneMusic($id);
 
 include "updatedText.view.php";

@@ -6,20 +6,18 @@ use App\modals\ShowData; ?>
             <tr>
                 <th class="photo">Фото</th>
                 <th>ФИО</th>
-                <th>Биография</th>
-                <th>Роль в группе</th>
+
             </tr>
             <?php foreach ($dataInfo as $info): ?>
 
 
                 <tr>
-                    <td><a href="/Information/aboutSoloists/soloistInfo?id=<?= $info->ID ?>">
+                    <td class="photos"><a href="/Information/aboutSoloists/soloistInfo?id=<?= $info->ID ?>">
                             <img src="/images/<?= $info->photo ?>" alt="" width="200px" class="solo">
                         </a>
                     </td>
                     <td> <?= $info->full_name ?> </td>
-                    <td class="biog"> <?= ShowData::showText($info->biography) ?> </td>
-                    <td> <?= $info->name ?> </td>
+
                 </tr>
 
 

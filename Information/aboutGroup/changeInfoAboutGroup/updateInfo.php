@@ -1,5 +1,4 @@
 <?php
-use App\modals\Validator;
 include $_SERVER["DOCUMENT_ROOT"]."/bootstrap.php";
 
 if(isset($_POST["submitUpdate"])){
@@ -10,7 +9,7 @@ if(isset($_POST["submitUpdate"])){
     [$error, $fileName] = loadImg($maxFileSize, $validTypeFiles, $uploadPath, "images");
 
     if(empty($error)){
-        $_SESSION["msg"] = "Файл успешно загружен";
+        $_SESSION["msg"] = "Информация о группе изменена";
         $_SESSION["alert"] = "alert-success";
 
         $aboutGroup->changeInfo($data);

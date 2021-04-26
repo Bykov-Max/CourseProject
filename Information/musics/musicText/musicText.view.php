@@ -5,28 +5,35 @@
         <h3> <?= $music->nameOfText ?> </h3>
 
         <?= $music->text ?><br><br>
-        <iframe width="560" height="315" src="<?= $music->video ?>" title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+
+        <div class="video">
+            <iframe width="560" height="315" src="<?= $music->video ?>" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
         <br><br>
 
-        <iframe frameborder="0" style="border:none;width:100%;height:180px;" width="100%" height="180"
-                src="<?= $music->sound ?>">Слушайте <a href='https://music.yandex.ru/album/489742/track/24426672'></a> —
-            <a href='https://music.yandex.ru/artist/49258'>Skillet</a> на Яндекс.Музыке
-        </iframe>
+        <div class="sound"> <?= $music->sound ?> </div>
         <br><br>
 
         <label>Название альбома: </label>
         <?= $music->name ?><br><br>
 
-        <form action="/Information/musics/addText?id=<? $music->ID ?>" method="post" enctype="multipart/form-data">
-            <button style="display: <?= $_SESSION['auth'] ? 'button' : 'none' ?>" name="updateMusic">Изменить информацию
-                о песне
+
+        <a href="/Information/musics/change/?musicId=<?= $music->ID ?>"
+           style="display: <?= $_SESSION['auth'] ? 'button' : 'none' ?>">Изменить информацию
+            о песне
+        </a>
+
+        <form action="/Information/musics/deleteMusic/delete.php" method="post">
+            <input type="hidden" name="id" value="<?= $music->ID ?>">
+            <button name="deleteBtn" id="deleteBtn"
+                    onclick="return confirm('Вы действительно хотите удалить статью?');">Удалить статью
             </button>
         </form>
 
 
-        <button class="up"> НАВЕРХ </button>
+        <button class="up"> НАВЕРХ</button>
         <script src="/js/js1.js"></script>
     </div>
 

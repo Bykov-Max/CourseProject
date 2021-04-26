@@ -1,5 +1,8 @@
 <?php include $_SERVER["DOCUMENT_ROOT"] . "/template/header.php"; ?>
-    <div>
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+
+    <div class="addSoloist">
         <p class="alert <?= $_SESSION["alert"] ?>"> <?= $_SESSION["msg"] ?? '' ?> </p> <br>
         <form action="insertPost.php" method="post" enctype="multipart/form-data">
             <label>ФИО солиста</label>
@@ -26,7 +29,14 @@
             <button name="createPost">Создать пост</button>
         </form>
     </div>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#textarea'))
+            .catch(error => {
+                console.error(error);
+            });
 
+    </script>
 
     <script>
         let loadImage = document.querySelector("#loadImage");

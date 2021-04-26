@@ -55,8 +55,6 @@ function deleteImg($fileName)
     $error = "";
             if (!unlink($fileName)) {
                 $error = "Файл не удалось удалить!!!";
-
             }
-
    return $error;
 }
