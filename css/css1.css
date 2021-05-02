@@ -11,6 +11,14 @@ body{
     font-size: 1rem;
 }
 
+.hack{
+    font-size: 5rem;
+    color: red;
+    margin: 0 auto;
+    padding: 11%;
+    text-align: center;
+}
+
 footer{
     background-color: black;
     font-size: 25px;
@@ -18,25 +26,28 @@ footer{
     height: 50px;
     text-align: center;
     transition: all 1s ease;
+    bottom: 30%;
 }
 
-footer > a{
-    text-decoration: none;
+footer>div{
+    padding-top: 1%;
     text-align: center;
+    vertical-align: center;
+}
+
+footer>div>a:active{
+    text-decoration: none;
     color: white;
 }
 
-footer > a:hover{
+footer>div>a{
+    text-decoration: none;
+    color: white;
+}
+
+footer > div > a:hover{
     text-decoration: underline;
     color: white;
-}
-
-footer>a:active{
-    border: 1px solid white;
-    color: white;
-    border-radius: 5px;
-    font-size: 25px;
-    text-decoration: none;
 }
 
 
@@ -86,9 +97,8 @@ main>img{
 
 .welcome{
     position: absolute;
-    opacity: 1%;
-    margin-bottom: 125%;
-    margin-right: 10%;
+    opacity: 10%;
+    margin-bottom: 25%;
     text-align: center;
     color: white;
     font-size: 3rem;
@@ -102,12 +112,9 @@ main>img{
     cursor: default;
 }
 
-
-
-
-
-
 .site{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
     width: 100%;
     height: 70px;
     background-color: silver;
@@ -117,8 +124,36 @@ main>img{
     font-style: italic;
 }
 
+.change{
+    color: black;
+    text-decoration: none;
+    padding-left: 30%;
+    height: 100%;
+}
+
+.change:active{
+    padding-right: 250%;
+    color: black;
+    text-decoration: none;
+}
+
+.change:hover{
+    padding-right: 220px;
+    color: black;
+    text-decoration: underline;
+}
+
+
+.changes{
+    text-decoration: none;
+    color: black;
+}
+
+div>.changes{
+    width: 50%;
+}
+
 .logo{
-    padding: 10px;
     transition: all 2s ease;
 }
 
@@ -133,8 +168,6 @@ main>img{
 
 .admin{
     float: right;
-    margin-top: 15px;
-    font-size: 70%;
     text-decoration: none;
     padding-right: 15px;
     color: black;
@@ -213,6 +246,14 @@ table {
     width: 70%;
 }
 
+.addAlbum{
+    margin-left: 20%;
+}
+
+.deleteAlbum{
+    margin-left: 20%;
+}
+
 .soloists{
     background-color: silver;
     padding: 10px;
@@ -222,6 +263,11 @@ table {
     width: 60%;
     margin: 10px auto;
     background-color: white;
+}
+
+.create{
+    margin-left: 20%;
+    margin-bottom: 1%;
 }
 
 .biography{
@@ -323,6 +369,13 @@ table {
 
 .up:focus {
     outline: none !important;
+}
+
+.changeText{
+    border: 1px solid black;
+    text-decoration: none;
+    background-color: #dfdfdf;
+    color: #000000;
 }
 
 .aboutGroup{
@@ -462,6 +515,11 @@ label{
     width: auto;
 }
 
+.aboutMe{
+    margin: 0 auto;
+    padding: 10px;
+    width: 100%;
+}
 
 @media all and (max-width: 320px){
     .block-menu{
@@ -469,29 +527,25 @@ label{
         grid-template-columns: 1fr;
         transition: all 1s ease;
         width: 100%;
-        max-width: 320px;
     }
 
     .block-menu a{
         font-size: 1rem;
         width: 100%;
-        max-width: 320px;
+        max-width: 260px;
     }
 
     .block-menu a:active{
         font-size: 1rem;
-        width: 80%;
-        max-width: 300px;
     }
 
     .block-menu>a:hover{
         color: white;
         background-color: blue;
         border-radius: 5px;
-        font-size: 15px;
+        font-size: 1rem;
         text-decoration: none;
         width: 100%;
-        max-width: 320px;
     }
 
     main{
@@ -508,7 +562,7 @@ label{
         opacity: 70%;
         font-size: 0.75rem;
         position: absolute;
-        margin-top: 100%;
+        margin-bottom: 25%;
         margin-right: 10%;
         text-align: center;
         width: 150px;
@@ -535,11 +589,11 @@ label{
     }
 
     .soloists table{
-        margin-right: 20%;
+        margin: auto;
         width: 70%;
     }
 
-    .soloist table .solo{
+    .solo{
         width: 100%;
         height: auto;
     }
@@ -561,7 +615,161 @@ label{
     }
 
     .up{
-        right: 20%;
+        right: 5%;
+    }
+}
+
+@media all and (width: 360px){
+    .block-menu{
+        display: grid;
+        grid-template-columns: 1fr;
+        transition: all 1s ease;
+        width: 100%;
+        max-width: 360px;
+    }
+
+    .block-menu a{
+        font-size: 1rem;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .block-menu a:active{
+        font-size: 1rem;
+        width: 80%;
+        max-width: 300px;
+    }
+
+    .block-menu>a:hover{
+        color: white;
+        background-color: blue;
+        border-radius: 5px;
+        font-size: 15px;
+        text-decoration: none;
+        width: 100%;
+
+    }
+
+    footer>div{
+        padding-top: 3%;
+        text-align: center;
+        vertical-align: center;
+    }
+
+    footer>div>a:active{
+        text-decoration: none;
+        color: white;
+    }
+
+    footer>div>a{
+        text-decoration: none;
+        color: white;
+    }
+
+    main{
+        width: 100%;
+
+    }
+
+    main>img{
+        width: auto;
+        max-width: 360px;
+    }
+
+    main .welcome{
+        opacity: 70%;
+        font-size: 0.75rem;
+        position: absolute;
+        margin-top: 2%;
+        margin-right: 10%;
+        text-align: center;
+        width: 150px;
+    }
+
+    .site{
+        display: grid;
+        grid-template-columns: 0fr repeat(2, 1fr);
+        width: 100%;
+    }
+
+    .change{
+        color: black;
+        text-decoration: none;
+        float: left;
+        font-size: 1.6rem;
+    }
+
+    .change:active{
+        color: black;
+        text-decoration: none;
+        float: left;
+        font-size: 2rem;
+    }
+
+    .change:hover{
+        color: black;
+        text-decoration: underline;
+        float: left;
+        font-size: 2rem;
+    }
+
+    .admin{
+        float: right;
+        font-size: 2.5rem;
+        padding-left: 10%;
+    }
+
+    .admin:active{
+        color: black;
+        text-decoration: none;
+        float: right;
+        font-size: 2.5rem;
+        padding-left: 10%;
+    }
+
+    .admin:hover{
+        color: black;
+        text-decoration: underline;
+        float: right;
+        font-size: 2.5rem;
+        padding-left: 10%;
+    }
+
+    .logo{
+        display: none;
+    }
+
+    .soloists{
+        width: 94.5%;
+    }
+
+    .soloists table{
+        width: 60%;
+    }
+
+    .solo{
+        width: 100%;
+        height: auto;
+    }
+
+    .albums{
+        width: 94.5%;
+        max-width: 360px;
+    }
+
+
+    .albums table{
+        margin-left: auto;
+        width: 70%;
+    }
+
+    .albumImages{
+        width: 100%;
+        height: auto;
+    }
+
+    .up{
+        right: 5%;
     }
 }
 
@@ -579,20 +787,44 @@ label{
         font-size: 25px;
         text-decoration: none;
     }
+
+    footer{
+        height: 70px;
+    }
+
+    footer>div{
+        padding-top: 3%;
+        text-align: center;
+        vertical-align: center;
+    }
+
+    footer>div>a:active{
+        text-decoration: none;
+        color: white;
+    }
+
+    footer>div>a{
+        text-decoration: none;
+        color: white;
+    }
+
+    main>img{
+        height: 320px;
+    }
+
     main .welcome{
         opacity: 70%;
-        font-size: 1px;
+        font-size: 0.9rem;
         position: absolute;
-        margin-bottom: 115%;
+        margin-bottom: 25%;
+        margin-right: 7%;
         text-align: center;
-        width: 100px;
+        width: 185px;
     }
 
     .soloists{
-        max-width: 400px;
+        max-width: 375px;
         width: 100%;
-
-        overflow-scrolling: unset;
     }
 
     .soloists table{
@@ -600,9 +832,88 @@ label{
         width: 100%;
     }
 
+    .site{
+        display: grid;
+        grid-template-columns: 0fr repeat(2, 1fr);
+        width: 100%;
+    }
+
+    .change{
+        color: black;
+        text-decoration: none;
+        float: left;
+        font-size: 1.5rem;
+    }
+
+    .change:active{
+        color: black;
+        text-decoration: none;
+        float: left;
+        font-size: 2rem;
+    }
+
+    .change:hover{
+        color: black;
+        text-decoration: underline;
+        float: left;
+        font-size: 2rem;
+    }
+
+    .admin{
+        float: right;
+        font-size: 2.5rem;
+        padding-left: 10%;
+    }
+
+    .admin:active{
+        color: black;
+        text-decoration: none;
+        float: right;
+        font-size: 2.5rem;
+        padding-left: 10%;
+    }
+
+    .admin:hover{
+        color: black;
+        text-decoration: underline;
+        float: right;
+        font-size: 2.5rem;
+        padding-left: 10%;
+    }
+
+    .logo{
+        display: none;
+    }
+
+    .soloists{
+        width: 95%;
+    }
+
+    .albums{
+        width: 94%;
+        max-width: 100%;
+    }
+
+    .albums table{
+        width: 70%;
+    }
+
+    .albumImages{
+        width: 100%;
+        height: auto;
+    }
+
+    .biography{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .image{
+        float: left;
+    }
 }
 
-@media all and (width: 411px){
+@media all and (width: 414px){
     main .welcome{
         opacity: 70%;
         font-size: 15px;
@@ -624,6 +935,22 @@ label{
         border-radius: 5px;
         font-size: 25px;
         text-decoration: none;
+    }
+
+    footer>div{
+        padding-top: 3%;
+        text-align: center;
+        vertical-align: center;
+    }
+
+    footer>div>a:active{
+        text-decoration: none;
+        color: white;
+    }
+
+    footer>div>a{
+        text-decoration: none;
+        color: white;
     }
 
     .soloists{
@@ -672,8 +999,6 @@ label{
         width: 50%;
     }
 }
-
-
 
 @media all and (width: 720px){
     .block-menu{
@@ -746,7 +1071,97 @@ label{
         text-align: center;
         width: 300px;
     }
+
+    .biography>img{
+        width: 100%;
+    }
 }
+
+
+@media all and (width: 768px){
+    .block-menu{
+        display: grid;
+        grid-template-columns: 1fr;
+        transition: all 1s ease;
+    }
+
+    .block-menu>a:hover{
+        color: white;
+        background-color: blue;
+        border-radius: 5px;
+        font-size: 25px;
+        text-decoration: none;
+    }
+
+    main>img{
+        height: 550px;
+    }
+
+    main>.welcome{
+        font-size: 3rem;
+        margin-top: 40%;
+    }
+
+    .site{
+        display: grid;
+        grid-template-columns: 3fr 0fr 1fr;
+    }
+
+    .logo{
+        display: none;
+    }
+
+    .soloists{
+        width: 97.4%;
+    }
+
+    .soloists table{
+        width: 50%;
+    }
+
+    .albums table{
+        width: 70%;
+    }
+
+    .albums table .albumImages{
+        width: 100%;
+        height: auto;
+    }
+
+    .solo{
+        width: 100%;
+        height: auto;
+    }
+
+    .photo{
+        width: 150%;
+        height: auto;
+    }
+
+    .biog{
+        height: 50px;
+    }
+
+    main>.welcome{
+        opacity: 70%;
+        font-size: 20px;
+        position: absolute;
+        margin-bottom: 70%;
+        margin-right: 30px;
+        text-align: center;
+        width: 300px;
+    }
+
+    .biography>img{
+        width: 100%;
+    }
+
+    .form>img{
+        height: 550px;
+    }
+}
+
+
 
 
 @media all and (width: 1024px){
@@ -816,14 +1231,37 @@ label{
 }
 
 @media all and (width: 1280px){
+    .block-menu{
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        transition: all 1s ease;
+        width: 100%;
+    }
+
     main .welcome{
-        opacity: 30%;
+        opacity: 15%;
         font-size: 2rem;
         position: absolute;
         margin-bottom: 300px;
-        margin-left: 10%;
         text-align: center;
         width: 500px;
         height: 100px;
+    }
+
+    .form>img{
+        width: 100%;
+        height: 100%;
+    }
+
+    .auth{
+        -ms-transform: translateX(-150%) translateY(-50%);
+    }
+
+    .form>img{
+        height: 755px;
+    }
+
+    .hack{
+        height: 473px;
     }
 }

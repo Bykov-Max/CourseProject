@@ -2,14 +2,21 @@
     <div class="musicText">
 
 
+        <form action="/Information/musics/deleteMusic/delete.php" method="post" style="display: <?= $_SESSION['auth'] ? 'button' : 'none' ?>" enctype="multipart/form-data">
+            <a href="/Information/musics/change/?musicId=<?= $music->ID ?>" class="changeText">Изменить информацию о песне </a>
+
+            <input type="hidden" name="id" value="<?= $music->ID ?>">
+             <button name="deleteBtn" id="deleteBtn"
+                    onclick="return confirm('Вы действительно хотите удалить статью?');">Удалить статью
+            </button>
+        </form>
+
         <h3> <?= $music->nameOfText ?> </h3>
 
         <?= $music->text ?><br><br>
 
         <div class="video">
-            <iframe width="560" height="315" src="<?= $music->video ?>" title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+            <?= $music->video ?>
         </div>
         <br><br>
 
@@ -18,20 +25,6 @@
 
         <label>Название альбома: </label>
         <?= $music->name ?><br><br>
-
-
-        <a href="/Information/musics/change/?musicId=<?= $music->ID ?>"
-           style="display: <?= $_SESSION['auth'] ? 'button' : 'none' ?>">Изменить информацию
-            о песне
-        </a>
-
-        <form action="/Information/musics/deleteMusic/delete.php" method="post">
-            <input type="hidden" name="id" value="<?= $music->ID ?>">
-            <button name="deleteBtn" id="deleteBtn"
-                    onclick="return confirm('Вы действительно хотите удалить статью?');">Удалить статью
-            </button>
-        </form>
-
 
         <button class="up"> НАВЕРХ</button>
         <script src="/js/js1.js"></script>

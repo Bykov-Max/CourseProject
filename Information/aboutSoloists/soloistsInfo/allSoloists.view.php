@@ -1,13 +1,15 @@
-<?php include $_SERVER["DOCUMENT_ROOT"] . "/template/header.php";
+<?php include $_SERVER["DOCUMENT_ROOT"] . "/template/header.php"; ?>
 
-use App\modals\ShowData; ?>
     <div class="soloists">
-        <table border="1">
-            <tr>
-                <th class="photo">Фото</th>
-                <th>ФИО</th>
 
-            </tr>
+        <form action="/Information/aboutSoloists/newGroupMember/index.php?id = <?= $dataInfo->ID ?>" method="post"
+              enctype="multipart/form-data" style="display: <?= $_SESSION['auth'] ? 'button' : 'none' ?>">
+            <button name="create" class="create">Добавить информацию о солисте</button>
+        </form>
+
+
+        <table border="1" cellspacing="0">
+
             <?php foreach ($dataInfo as $info): ?>
 
 
@@ -23,12 +25,8 @@ use App\modals\ShowData; ?>
 
             <?php endforeach; ?>
         </table>
-        <br>
-        <a name="create" class="create" style="display: <?= $_SESSION['auth'] ? 'button' : 'none' ?>"
-           href="/Information/aboutSoloists/newGroupMember/index.php?id = <?= $dataInfo->ID ?>">Добавить информацию о
-            солисте</a>
 
-        <button class="up"> НАВЕРХ </button>
+        <button class="up"> НАВЕРХ</button>
         <script src="/js/js1.js"></script>
     </div>
 

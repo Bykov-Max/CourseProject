@@ -1,27 +1,11 @@
-<?php
-session_start();
+<?php include $_SERVER["DOCUMENT_ROOT"] . "/template/header.php" ?>
 
-include $_SERVER["DOCUMENT_ROOT"]."/bootstrap.php";
-use App\modals\Validator;
+    <div class="hack">
+        !!!Попытка взлома!!!<br>
+        !!!Попытка взлома!!!<br>
+        !!!Попытка взлома!!!<br>
+        !!!Попытка взлома!!!<br>
+        !!!Попытка взлома!!!
+    </div>
 
-if(isset($_POST["submit"])) {
-    if (Validator::preProcessing($_POST['email']) == "admin@ru.ru" && Validator::preProcessing($_POST["password"]) == 123456) {
-        $_SESSION["auth"] = true;
-        $_SESSION["email"] = $_POST["email"];
-        $_SESSION["auth_exit"] = "Выйти";
-        header("Location: /");
-    }
-    else{
-        $res = " Неправильно введены логин или пароль..... ";
-    }
-}
-
-else{
-    if(isset($_SESSION["auth_exit"]) && $_SESSION["auth_exit"] == "Выйти"){
-        $_SESSION["auth"]=false;
-        session_destroy();
-        header("Location: /");
-    }
-}
-
-include $_SERVER["DOCUMENT_ROOT"]."/admin/auth.view.php";
+<?php include $_SERVER["DOCUMENT_ROOT"] . "/template/footer.php" ?>

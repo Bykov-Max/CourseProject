@@ -4,8 +4,14 @@
     <div class="albums">
 
         <form action="/Information/albums/add/" method="post" enctype="multipart/form-data">
-            <button name="change" style = "display: <?= $_SESSION['auth'] ? 'block':'none' ?>">Добавить новый альбом</button>
+            <button name="change" style = "display: <?= $_SESSION['auth'] ? 'block':'none' ?>" class="addAlbum">Добавить новый альбом</button>
         </form>
+
+        <form action="/Information/albums/deleteAlbum/" method="post" enctype="multipart/form-data">
+            <button name="change" style = "display: <?= $_SESSION['auth'] ? 'block':'none' ?>" class="deleteAlbum">Удалить альбом</button>
+        </form>
+
+        <br>
 
         <table cellspacing="0">
             <tr>

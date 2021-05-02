@@ -3,5 +3,5 @@
     <a href="/Information/aboutGroup/groupInfo/">Информация о группе</a>
     <a href="/Information/aboutSoloists/soloistsInfo/">Солисты</a>
     <a href="/Information/albums/">Альбомы</a>
-    <a href="#menu4">Информация о турах</a>
+    <a href="#">Информация о турах</a>
 </nav>

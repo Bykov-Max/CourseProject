@@ -1,13 +1,12 @@
 
 <footer>
-    <a href="#"> О нас </a>
+    <div>
+        <a href="/Information/about/"> О нас </a>
+    </div>
+
 </footer>
 
-
 </div>
-
-
-
 
 </body>
 </html>

@@ -11,12 +11,11 @@ class GroupMembers
     }
 
     public function addSoloist($data){
-        $stmt = $this->pdo->prepare("insert into group_members(full_name, biography, photo, roles_ID, career) values (:full_name, :biography, :photo, :roles_id, :career)");
+        $stmt = $this->pdo->prepare("insert into group_members(full_name, biography, photo, career) values (:full_name, :biography, :photo, :roles_id, :career)");
         $stmt->execute([
             'full_name' => $data['full_name'],
             'biography' => $data['biography'],
             'photo' => $data['photo'],
-            'roles_id' => $data['roles_id'],
             'career' => $data['career']
         ]);
 
@@ -25,17 +24,15 @@ class GroupMembers
     }
 
     public function allSoloistsInfo(){
-        $stmt = $this->pdo->query("SELECT group_members.*, roles.name 
-                    FROM group_members 
-                    inner join roles on group_members.roles_ID = roles.ID");
+        $stmt = $this->pdo->query("SELECT group_members.* 
+                    FROM group_members ");
         $temp = $stmt->fetchAll();
         return $temp;
     }
 
     public function soloistInfo($id){
-        $stmt = $this->pdo->prepare("SELECT group_members.*, roles.name 
+        $stmt = $this->pdo->prepare("SELECT group_members.* 
                     FROM group_members 
-                    inner join roles on group_members.roles_ID = roles.ID 
                     WHERE group_members.ID = :id");
 
         $stmt->execute([
@@ -46,14 +43,22 @@ class GroupMembers
     }
 
     public function updateMemberInfo($data){
-        $stmt = $this->pdo->prepare("update group_members set full_name = :full_name, biography = :biography, photo = :photo, roles_ID = :roles_id career = :career");
+        $stmt = $this->pdo->prepare("update group_members set full_name = :full_name, biography = :biography, photo = :photo, career = :career where ID = :id");
+
         $stmt->execute([
+            'id' => $data['id'],
             'full_name' => $data['full_name'],
             'biography' => $data['biography'],
             'photo' => $data['photo'],
-            'roles_id' => $data['roles_id'],
             'career' => $data['career']
         ]);
+    }
 
+    public function deleteMemberInfo($id){
+        $stmt = $this->pdo->prepare("delete from group_members where ID = :id");
+
+        $stmt->execute([
+           "id" => $id
+        ]);
     }
 }

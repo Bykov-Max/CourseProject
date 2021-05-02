@@ -16,6 +16,15 @@ class Albums
         return $temp;
     }
 
+    public function getOneAlbum($id){
+        $stmt = $this->pdo->prepare("select * from albums where ID=:id");
+        $stmt->execute([
+           "id"=>$id
+        ]);
+        $temp = $stmt->fetch();
+        return $temp;
+    }
+
     public function addAlbum($data){
         $stmt = $this->pdo->prepare("insert into albums(name, photoOfAlbum, dateOfCreation) values(:name, :photo, :dateOfCreation)");
 
@@ -29,12 +38,22 @@ class Albums
     }
 
     public function updateAlbum($data){
-        $stmt = $this->pdo->prepare("update albums set name = :name, photoOfAlbum = :photo, dateOfCreation = :dateOfCreation");
+        $stmt = $this->pdo->prepare("update albums set name = :name, photoOfAlbum = :photo, dateOfCreation = :dateOfCreation
+                                    where ID = :id");
 
         $stmt->execute([
+            "id" = $data["id"],
             "name" => $data['name'],
             "photo" => $data['photo'],
             "dateOfCreation" => $data['dateOfCreation'],
+        ]);
+    }
+
+    public function deleteAlbum($id){
+        $stmt = $this->pdo->prepare("delete from albums where ID = :id");
+
+        $stmt->execute([
+           "id"=>$id
         ]);
     }
 }

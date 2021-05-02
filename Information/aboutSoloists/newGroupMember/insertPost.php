@@ -19,13 +19,15 @@ if(isset($_POST["createPost"])){
         $data["photo"] = $fileName;
 
         $members = $groupMembers->addSoloist($data);
+        $memberID = $members;
 
+        $addRole = $memberRoles->addRoles($data["roles_id"], $memberID);
 
         header("Location: /Information/newGroupMember/index.php");
     }
     else{
         $_SESSION["msg"] = $error;
         $_SESSION["alert"] = "alert-danger";
-        header("Location: /Information/newGroupMember/new.view.php");
+        header("Location: /Information/newGroupMember/change.view.php");
     }
 }
