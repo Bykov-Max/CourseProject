@@ -15,12 +15,12 @@ if(isset($_POST["changeLogin"])) {
 
         $_SESSION['error'] = "Пароль успешно изменён";
 
-        header("Location: /bykov_max/change.view.php");
+        header("Location: /admin/bykov_max/change.view.php");
     }
 
     else{
         $_SESSION["error"] = "Пароль изменить не удалось";
-        header("Location: /bykov_max/change.view.php");
+        header("Location: /admin/bykov_max/change.view.php");
     }
 }
 

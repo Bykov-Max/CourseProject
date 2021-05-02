@@ -4,18 +4,18 @@
 
     <div class="changeSoloist">
         <p class="alert <?= $_SESSION["alert"] ?>"> <?= $_SESSION["msg"] ?? '' ?> </p> <br>
-        <form action="changeInfo.php" method="post" enctype="multipart/form-data">
+        <form action="/Information/albums/change/changeInfo.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="albumID" value="<?= $album->ID ?>">
 
             <label>Название альбома</label>
             <input type="text" name="name" value="<?= $album->name ?>" required> <br><br>
 
             <label>Обложка альбома</label>
-            <input type="file" name="photo" id="image" value="<?= $album->photo ?>" required> <br><br>
+            <input type="file" name="photo" id="image" value="<?= $album->photoOfAlbum ?>" required> <br><br>
             <img src="" alt="" id="loadImage">
 
             <label>Дата создания альбома</label>
-            <input id="dateOfCreation" name="dateOfCreation" required value="<?= $dataInfo->biography ?>">   <br><br>
+            <input type="text" id="dateOfCreation" name="dateOfCreation" required value="<?= $album->dateOfCreation ?>">   <br><br>
 
 
             <button name="changeAlbum">Изменить информацию</button>

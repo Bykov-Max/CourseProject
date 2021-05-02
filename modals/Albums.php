@@ -38,11 +38,10 @@ class Albums
     }
 
     public function updateAlbum($data){
-        $stmt = $this->pdo->prepare("update albums set name = :name, photoOfAlbum = :photo, dateOfCreation = :dateOfCreation
-                                    where ID = :id");
+        $stmt = $this->pdo->prepare("update albums set name = :name, photoOfAlbum = :photo, dateOfCreation = :dateOfCreation where ID = :id");
 
         $stmt->execute([
-            "id" = $data["id"],
+            "id" => $data["id"],
             "name" => $data['name'],
             "photo" => $data['photo'],
             "dateOfCreation" => $data['dateOfCreation'],

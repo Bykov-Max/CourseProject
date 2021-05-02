@@ -11,10 +11,8 @@ class Musics
     }
 
     public function getMusic($id){
-        $stmt = $this->pdo->prepare("select musics.*
-                    from musics 
-                    inner join albums on musics.albums_ID = albums.ID
-                    where musics.albums_ID = :id");
+        $stmt = $this->pdo->prepare("select * from musics 
+                            where musics.albums_ID = :id");
 
         $stmt->execute([
             "id" => $id

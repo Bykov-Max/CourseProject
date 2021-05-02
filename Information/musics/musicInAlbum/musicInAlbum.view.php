@@ -7,15 +7,27 @@
             <a href="/Information/musics/musicText?id=<?= $item->ID ?>"
                class="music"> <?= $item->nameOfText ?> </a>  <br>
 
+
+
         <?php endforeach; ?><br>
 
-        <form action="/Information/musics/addText/" method="post" enctype="multipart/form-data">
-            <button style="display: <?= $_SESSION['auth'] ? 'button' : 'none' ?>" name="addMusic">Добавить песню</button>
-        </form>
+
+
+        <?php foreach ($mus as $item): ?>
+
+        <?php endforeach; ?><br>
 
         <form action="/Information/albums/change/" method="post" enctype="multipart/form-data">
-            <button name="change" style = "display: <?= $_SESSION['auth'] ? 'block':'none' ?>" class="changeAlbum">Обновить альбом</button>
+            <input type="hidden" name="id" value="<?= $album->ID ?>">
+
+            <button name="change" style="display: <?= $_SESSION['auth'] ? 'block' : 'none' ?>" class="changeAlbum"> Обновить альбом </button>
         </form>
+
+        <form action="/Information/musics/addText/" method="post" enctype="multipart/form-data">
+            <button style="display: <?= $_SESSION['auth'] ? 'button' : 'none' ?>" name="addMusic">Добавить песню
+            </button>
+        </form>
+
 
     </div>
 
