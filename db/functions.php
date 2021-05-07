@@ -52,9 +52,7 @@ function loadImg($maxFileSize, $validFileTypes, $uploadPath, $nameElem)
 
 function deleteImg($fileName)
 {
-    $error = "";
-            if (!unlink($fileName)) {
-                $error = "Файл не удалось удалить!!!";
-            }
-   return $error;
+    if(is_file($fileName)){
+        unlink($fileName);
+    }
 }

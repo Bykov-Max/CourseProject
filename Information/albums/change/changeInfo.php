@@ -10,7 +10,7 @@ if(isset($_POST["changeAlbum"])){
 
     $album = $albums->getOneAlbum($data["id"]);
 
-    $delete = deleteImg($album->photoOfAlbum);
+    deleteImg("../../../images/".$album->photoOfAlbum);
 
     [$error, $fileName] = loadImg($maxFileSize, $validFileTypes, $uploadPath, "photo");
 
@@ -30,6 +30,6 @@ if(isset($_POST["changeAlbum"])){
     else{
         $_SESSION["msg"] = $error.", ".$delete;
         $_SESSION["alert"] = "alert-danger";
-//        header("Location: /Information/albums/change/");
+        header("Location: /Information/albums/change/");
     }
 }

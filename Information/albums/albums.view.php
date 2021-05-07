@@ -23,7 +23,7 @@
                 <tr>
                     <td>
                         <a href="/Information/musics/musicInAlbum?albumId=<?= $item->ID ?>" name="id"> <img
-                                    src="/images/albums/<?= $item->photoOfAlbum ?>" class="albumImages">
+                                    src="/images/<?= $item->photoOfAlbum ?>" class="albumImages">
                         </a>
                     </td>
 
